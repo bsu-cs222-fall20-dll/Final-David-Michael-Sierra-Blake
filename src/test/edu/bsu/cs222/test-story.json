@@ -1,0 +1,50 @@
+{
+  "TestStory": {
+
+    "StartRoom": {
+      "Text": "This is the start room to the test story.",
+      "Actions": {
+        "Action1": ["This is the first action.","RoomTwo"],
+        "Action2": ["This is the second action.","RoomThree"],
+        "Action3": ["This is the third action. It will end the game.","End"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "RoomTwo": {
+      "Text": "This is room two. There will be a puzzle here.",
+      "Actions": {
+        "Action1": ["Attempt the puzzle.", "DoPuzzle"],
+        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+      },
+      "Puzzle": ["color", "RoomFour", "EndLose"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "RoomThree": {
+      "Text": "There is an enemy in this room.",
+      "Actions": {
+        "Action1": ["This is the first attack action.","Sword"],
+        "Action2": ["This is the second attack action.","Bow"],
+        "Action3": ["This is the third attack action.","Lance"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Skeleton"],
+      "EnemyClear": "RoomFour"
+    },
+
+    "RoomFour": {
+      "Text": "This is the last room in the test story.",
+      "Actions": {
+        "Action1": ["Exit through the door.","EndWin"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    }
+
+  }
+}
