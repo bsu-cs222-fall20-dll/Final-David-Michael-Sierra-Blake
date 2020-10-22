@@ -1,0 +1,15 @@
+{
+  "Monsters": {
+
+    "ExampleMonster": {
+      "Health": 20,
+      "Attack": 3
+    },
+    "ExampleMonster2": {
+      "Health": 10,
+      "Attack": 5
+    }
+
+
+  }
+}
