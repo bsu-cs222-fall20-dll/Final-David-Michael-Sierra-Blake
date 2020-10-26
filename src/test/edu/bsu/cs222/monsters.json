@@ -1,15 +1,29 @@
 {
   "Monsters": {
 
-    "ExampleMonster": {
-      "Health": 20,
-      "Attack": 3
+    "Skeleton": {
+      "Health": 8,
+      "Attack": 4
     },
-    "ExampleMonster2": {
-      "Health": 10,
+    "Vampire": {
+      "Health": 8,
+      "Attack": 4
+    },
+    "Orc": {
+      "Health": 12,
+      "Attack": 2
+    },
+    "Golem": {
+      "Health": 12,
+      "Attack": 2
+    },
+    "Goblin": {
+      "Health": 5,
+      "Attack": 5
+    },
+    "Imp": {
+      "Health": 5,
       "Attack": 5
     }
-
-
   }
 }
