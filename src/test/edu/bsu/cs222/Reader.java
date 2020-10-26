@@ -1,18 +1,19 @@
+package edu.bsu.cs222;
+
 import java.io.FileReader;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class Reader{
     public static void main(String[] args) throws Exception{
-        Object read = new JSONParser().parse(new FileReader("test-story.json"));
+        Object read = new JsonParser().parse(new FileReader("test-story.json"));
 
-        JSONObject obj = (JSONObject) read;
+        JsonObject obj = (JsonObject) read;
 
-        String Text = (String) obj.get("Text");
+        String Text = obj.getAsJsonObject("Text").toString();
         System.out.println(Text);
 
         Map StartRoom = ((Map)obj.get("StartRoom"));
