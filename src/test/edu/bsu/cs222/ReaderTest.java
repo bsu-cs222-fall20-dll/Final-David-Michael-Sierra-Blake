@@ -65,6 +65,36 @@ public class ReaderTest {
         Assertions.assertEquals(enemies.toString(), "[]");
 
     }
+    @Test
+    public void startRoomActionstest() throws FileNotFoundException{
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = storyReader.roomReceiver(rootObject);
+        JsonObject actions = storyReader.actionsReceiver(room);
+        System.out.println(actions);
+        Assertions.assertEquals(actions.toString(), "{\"Action1\":[\"This is the first action.\",\"RoomTwo\"],\"Action2\":[\"This is the second action.\",\"RoomThree\"],\"Action3\":[\"This is the third action. It will end the game.\",\"End\"]}");
+    }
+    @Test
+    public void puzzleTest() throws FileNotFoundException{
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = storyReader.roomReceiver(rootObject);
+        JsonArray puzzle = storyReader.puzzleReceiver(room);
+        System.out.println(puzzle);
+        Assertions.assertEquals(puzzle.toString(), "[\"null\",\"ifPass\",\"ifFail\"]");
+    }
+    @Test
+    public void enemyClearTest() throws FileNotFoundException{
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = storyReader.roomReceiver(rootObject);
+        JsonPrimitive clear = storyReader.enemyClear(room);
+        System.out.println(clear);
+        Assertions.assertEquals(clear.toString(), "\"null\"");
+    }
 
 
 }

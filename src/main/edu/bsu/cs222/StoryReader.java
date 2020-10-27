@@ -28,6 +28,18 @@ public class StoryReader {
         JsonArray enemies = rootObject.getAsJsonArray("Enemies");
         return enemies;
     }
+    public JsonObject actionsReceiver(JsonObject rootObject){
+        JsonObject actions = rootObject.getAsJsonObject("Actions");
+        return actions;
+    }
+    public JsonArray puzzleReceiver(JsonObject rootObject){
+        JsonArray puzzle =  rootObject.getAsJsonArray("Puzzle");
+        return puzzle;
+    }
+    public JsonPrimitive enemyClear(JsonObject rootObject){
+        JsonPrimitive clear = rootObject.getAsJsonPrimitive("EnemyClear");
+        return clear;
+    }
 
 
 }
