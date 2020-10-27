@@ -5,6 +5,8 @@ import com.google.gson.*;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class StoryReader {
     public JsonObject parse(InputStream input) {
@@ -14,10 +16,9 @@ public class StoryReader {
         return rootElement.getAsJsonObject();
     }
 
-    public JsonObject roomReceiver(JsonObject rootObject) {
-        JsonObject room = rootObject.getAsJsonObject("TestStory").getAsJsonObject("StartRoom");
-        System.out.println(room);
-        return room;
+    public JsonObject roomReceiver(JsonObject rootObject, String room) {
+        JsonObject roomObject = rootObject.getAsJsonObject("TestStory").getAsJsonObject(room);
+        return roomObject;
     }
 
     public JsonPrimitive textReceiver(JsonObject room) {
@@ -32,13 +33,30 @@ public class StoryReader {
         JsonObject actions = rootObject.getAsJsonObject("Actions");
         return actions;
     }
+
+    public ArrayList<JsonArray> getActionList(JsonObject actions) {
+        ArrayList<JsonArray> actionList = new ArrayList<>();
+        actionList.add(actions.getAsJsonArray("Action1"));
+        actionList.add(actions.getAsJsonArray("Action2"));
+        actionList.add(actions.getAsJsonArray("Action3"));
+
+        actionList.removeIf(Objects::isNull);
+        return actionList;
+    }
+
+    public String getActionListAction(JsonArray action) {
+        return (action.get(0).toString());
+    }
+
+    public String getActionListResult(JsonArray action) {
+        return action.get(1).toString().replace("\"", "");
+    }
+
     public JsonArray puzzleReceiver(JsonObject rootObject){
-        JsonArray puzzle =  rootObject.getAsJsonArray("Puzzle");
-        return puzzle;
+        return rootObject.getAsJsonArray("Puzzle");
     }
     public JsonPrimitive enemyClear(JsonObject rootObject){
-        JsonPrimitive clear = rootObject.getAsJsonPrimitive("EnemyClear");
-        return clear;
+        return rootObject.getAsJsonPrimitive("EnemyClear");
     }
 
 

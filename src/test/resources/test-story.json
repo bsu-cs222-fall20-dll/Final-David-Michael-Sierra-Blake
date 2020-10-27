@@ -19,7 +19,7 @@
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
       },
-      "Puzzle": ["color", "RoomFour", "EndLose"],
+      "Puzzle": ["color", "LastRoom", "EndLose"],
       "Enemies": [],
       "EnemyClear": "null"
     },
@@ -33,10 +33,10 @@
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": ["Skeleton"],
-      "EnemyClear": "RoomFour"
+      "EnemyClear": "LastRoom"
     },
 
-    "RoomFour": {
+    "LastRoom": {
       "Text": "This is the last room in the test story.",
       "Actions": {
         "Action1": ["Exit through the door.","EndWin"]
