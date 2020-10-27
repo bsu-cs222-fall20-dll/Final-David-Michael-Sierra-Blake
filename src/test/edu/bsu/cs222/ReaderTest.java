@@ -54,6 +54,17 @@ public class ReaderTest {
         JsonPrimitive text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"This is the start room to the test story.\"");
     }
+    @Test
+    public void enemyReceiverTest() throws FileNotFoundException{
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = storyReader.roomReceiver(rootObject);
+        JsonArray enemies = storyReader.enemyReceiver(room);
+        System.out.println(enemies);
+        Assertions.assertEquals(enemies.toString(), "[]");
+
+    }
 
 
 }

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Final-David-Michael-Sierra-Blake.iml" filepath="$PROJECT_DIR$/.idea/Final-David-Michael-Sierra-Blake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Final-David-Michael-Sierra-Blake.iml" filepath="$PROJECT_DIR$/.idea/Final-David-Michael-Sierra-Blake.iml" group="Final-David-Michael-Sierra-Blake" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Final-David-Michael-Sierra-Blake_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Final-David-Michael-Sierra-Blake_main.iml" group="Final-David-Michael-Sierra-Blake" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Final-David-Michael-Sierra-Blake_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Final-David-Michael-Sierra-Blake_test.iml" group="Final-David-Michael-Sierra-Blake" />
     </modules>
   </component>
 </project>

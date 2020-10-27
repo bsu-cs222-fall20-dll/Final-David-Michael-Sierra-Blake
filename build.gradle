@@ -19,4 +19,4 @@ test {
     useJUnitPlatform()
 }
 
-mainClassName = 'edu.bsu.cs222.Reader'
+mainClassName = 'edu.bsu.cs222.Main'
