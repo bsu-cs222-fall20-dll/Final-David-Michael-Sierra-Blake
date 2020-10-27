@@ -8,6 +8,9 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Objects;
 
+//Suppressed because although deprecated, the JsonParser is
+//the best course of action for our project's needs and still works fully
+@SuppressWarnings("deprecation")
 public class StoryReader {
     public JsonObject parse(InputStream input) {
         JsonParser parser = new JsonParser();
@@ -17,8 +20,7 @@ public class StoryReader {
     }
 
     public JsonObject roomReceiver(JsonObject rootObject, String room) {
-        JsonObject roomObject = rootObject.getAsJsonObject("TestStory").getAsJsonObject(room);
-        return roomObject;
+        return rootObject.getAsJsonObject("TestStory").getAsJsonObject(room);
     }
 
     public JsonPrimitive textReceiver(JsonObject room) {
@@ -26,12 +28,10 @@ public class StoryReader {
     }
 
     public JsonArray enemyReceiver(JsonObject rootObject) {
-        JsonArray enemies = rootObject.getAsJsonArray("Enemies");
-        return enemies;
+        return rootObject.getAsJsonArray("Enemies");
     }
     public JsonObject actionsReceiver(JsonObject rootObject){
-        JsonObject actions = rootObject.getAsJsonObject("Actions");
-        return actions;
+        return rootObject.getAsJsonObject("Actions");
     }
 
     public ArrayList<JsonArray> getActionList(JsonObject actions) {

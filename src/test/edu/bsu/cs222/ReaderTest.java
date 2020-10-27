@@ -51,7 +51,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo");
+        storyReader.roomReceiver(rootObject, "RoomTwo");
     }
 
     @Test

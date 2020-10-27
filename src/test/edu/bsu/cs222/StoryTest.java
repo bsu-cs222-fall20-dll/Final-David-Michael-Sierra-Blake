@@ -53,7 +53,7 @@ public class StoryTest {
 
         ArrayList<JsonArray> puzzleActionList = storyReader.getActionList(puzzleActions);
         String puzzleActionResult = storyReader.getActionListResult(puzzleActionList.get(1));
-        String nextRoom = roomBuilder.puzzleRoomAction(story, actionResult, puzzleActionResult);
+        roomBuilder.puzzleRoomAction(story, actionResult, puzzleActionResult);
     }
 
     @Test
