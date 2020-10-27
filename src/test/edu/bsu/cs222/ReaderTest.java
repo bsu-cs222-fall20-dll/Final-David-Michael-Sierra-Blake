@@ -42,7 +42,7 @@ public class ReaderTest {
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject);
-        Assertions.assertEquals(room, "{\"Text\":\"This is the start room to the test story.\",\"Actions\":{\"Action1\":[\"This is the first action.\",\"RoomTwo\"],\"Action2\":[\"This is the second action.\",\"RoomThree\"],\"Action3\":[\"This is the third action. It will end the game.\",\"End\"]},\"Puzzle\":[\"null\",\"ifPass\",\"ifFail\"],\"Enemies\":[],\"EnemyClear\":\"null\"}\n");
+        Assertions.assertEquals(room.toString(), "{\"Text\":\"This is the start room to the test story.\",\"Actions\":{\"Action1\":[\"This is the first action.\",\"RoomTwo\"],\"Action2\":[\"This is the second action.\",\"RoomThree\"],\"Action3\":[\"This is the third action. It will end the game.\",\"End\"]},\"Puzzle\":[\"null\",\"ifPass\",\"ifFail\"],\"Enemies\":[],\"EnemyClear\":\"null\"}");
     }
 
     @Test
@@ -52,6 +52,8 @@ public class ReaderTest {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject);
         JsonPrimitive text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text, "This is the start room to the test story.");
+        Assertions.assertEquals(text.toString(), "\"This is the start room to the test story.\"");
     }
+
+
 }
