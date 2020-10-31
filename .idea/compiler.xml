@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="Final-David-Michael-Sierra-Blake.main" target="11" />
+      <module name="Final-David-Michael-Sierra-Blake.test" target="11" />
       <module name="Final-David-Michael-Sierra-Blake_main" target="11" />
       <module name="Final-David-Michael-Sierra-Blake_test" target="11" />
     </bytecodeTargetLevel>

@@ -50,7 +50,7 @@ public class PuzzleTest {
 
         JsonArray startRoomPuzzle = startRoom.getAsJsonArray("Puzzle");
         String puzzleIfPass = puzzle.ifPassAction(startRoomPuzzle);
-        Assertions.assertEquals(puzzleIfPass, "RoomFour");
+        Assertions.assertEquals(puzzleIfPass, "LastRoom");
     }
 
     @Test
