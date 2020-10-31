@@ -1,0 +1,95 @@
+{
+  "WaterStory": {
+
+    "StartRoom": {
+      "Text": "You wake up in a cold, stone room, leaned against one of the walls. Water is dripping from the ceiling, and there's enough in the room to go up to your waist. Where are you? You look around the room. There is a door ahead of you, it's old wood looking as if it will fall apart soon.",
+      "Actions": {
+        "Action1": ["Go through the door.","EnemyRoom1"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EnemyRoom1": {
+      "Text": "The water floods into the next room as you open the door. Across the room, you've waken somebody else up. SomeTHING else up. A skeleton picks itself up off the floor.",
+      "Actions": {
+        "Action1": ["Action 1 for fighting the skeleton.", "ActionName"],
+        "Action2": ["Action 2 for fighting the skeleton.", "ActionName"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Skeleton"],
+      "EnemyClear": "EmptyRoom2"
+    },
+
+    "EmptyRoom2": {
+      "Text": "You walk through the next door, which also contained about the same level of water. Why was there a skeleton ready to attack you? Ahead of you are two doors: one on the left, and one on the right.",
+      "Actions": {
+        "Action1": ["Walk through the door on the left.", "PuzzleRoom1"],
+        "Action2": ["Walk through the door on the right.", "EnemyRoom2"],
+        "Action3": ["Shake yourself off and wait in this room.", "EmptyRoom2-2"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EmptyRoom2-2": {
+      "Text": "You decide to wait before going any further.\n\nAs you stand in the knee-high water, you feel the ground tremble. Before you can react, it gives out underneath you, plummeting you into a dark hole, with three rooms worth of water chasing you. Before you know it, you are fully submerged with no way out.",
+      "Actions": {
+        "Action1": ["Give up.", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EnemyRoom2": {
+      "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
+      "Actions": {
+        "Action1": ["Fight the vampire first.", "AttackAction"],
+        "Action2": ["Fight the orc first.", "AttackAction"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Vampire", "Orc"],
+      "EnemyClear": "PuzzleRoom2"
+    },
+
+    "PuzzleRoom1": {
+      "Text": "Behind you, you hear the rush of all the water. It seems a hole opened in the room behind you, and sucked it all up! Good thing you weren't in there.\n\nIn front of you sits some sort of puzzle. It looks important.",
+      "Actions": {
+        "Action1": ["Attempt the puzzle.", "DoPuzzle"],
+        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+      },
+      "Puzzle": ["color", "PuzzleRoom2", "EndLose"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "PuzzleRoom2": {
+      "Text": "As you enter the room, the door slams shut behind you, with an audible locking noise. A large puzzle sits in the center of the room. As you approach it, water slowly starts flowing out of cracks in the walls. you decide that if you're gonna do the puzzle, you'd better hurry.",
+      "Actions": {
+        "Action1": ["Attempt the puzzle.", "DoPuzzle"],
+        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+      },
+      "Puzzle": ["order", "LastRoom", "EndLose"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "LastRoom": {
+      "Text": "With the water up to your shoulders, you finish the puzzle. Lots of mechanical noises happen all around you, as water starts flowing through a newly opened hole in the wall. After all the water clears out, a spiral staircase slowly lowers itself down from the ceiling.",
+      "Actions": {
+        "Action1": ["Exit up the staircase.","EndWin"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EndLose": "With no knowledge of how you got there, you have succumbed to the watery dungeon you woke up in. Game Over.",
+
+    "EndWin": "With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight."
+
+  }
+}
