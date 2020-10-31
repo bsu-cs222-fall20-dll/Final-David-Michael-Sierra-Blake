@@ -44,7 +44,10 @@
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
       "EnemyClear": "null"
-    }
+    },
+
+    "EndLose": "You have lost the test story.",
+    "EndWin": "You have won the test story."
 
   }
 }
