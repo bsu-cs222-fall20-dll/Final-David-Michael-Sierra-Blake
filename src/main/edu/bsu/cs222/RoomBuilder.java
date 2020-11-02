@@ -25,6 +25,10 @@ public class RoomBuilder {
             return puzzleRoomInitiate(story, roomName);
         } else if (!storyReader.enemyReceiver(currentRoom).toString().equals("[]")) {
             enemyRoom(story, roomName);
+        } else if (roomName.equals("\"EndWin\"")) {
+            winRoom(story, roomName);
+        } else if (roomName.equals("\"EndLose\"")) {
+            loseRoom(story, roomName);
         } else {
             emptyRoom();
         }
@@ -51,7 +55,7 @@ public class RoomBuilder {
         if(actionChoice.equals("DoPuzzle")) {
             return puzzleRoom(story, roomName);
         } else if (actionChoice.equals("IgnorePuzzle")) {
-            finish("EndLose");
+
         }
         return null;
     }
@@ -71,17 +75,19 @@ public class RoomBuilder {
     }
 
     public void lastRoom() {
-        finish("EndWin");
+
     }
 
-    public void finish(String endType) {
-        if(endType.equals("EndLose")) {
-            System.out.println("You lose the game!");
-        } else if (endType.equals("EndWin")) {
-            System.out.println("You win the game!");
-        } else {
-            System.out.println("The game has ended.");
-        }
+    public void loseRoom(JsonObject story, String roomName) {
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName);
+        JsonPrimitive roomText = storyReader.textReceiver(currentRoom);
+        System.out.println(roomText);
+    }
+
+    public void winRoom(JsonObject story, String roomName) {
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName);
+        JsonPrimitive roomText = storyReader.textReceiver(currentRoom);
+        System.out.println(roomText);
     }
 
 
