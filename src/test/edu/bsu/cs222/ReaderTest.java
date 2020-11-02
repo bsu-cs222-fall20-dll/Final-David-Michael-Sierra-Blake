@@ -180,5 +180,25 @@ public class ReaderTest {
         Assertions.assertEquals(clear.toString(), "\"null\"");
     }
 
+    @Test
+    public void endWinTest() throws FileNotFoundException {
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = storyReader.roomReceiver(rootObject, "EndWin");
+        JsonPrimitive text = storyReader.textReceiver(room);
+        Assertions.assertEquals(text.toString(), "\"You have won the test story.\"");
+    }
+
+    @Test
+    public void endLoseTest() throws FileNotFoundException{
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = storyReader.roomReceiver(rootObject, "EndLose");
+        JsonPrimitive text = storyReader.textReceiver(room);
+        Assertions.assertEquals(text.toString(), "\"You have lost the test story.\"");
+    }
+
 
 }
