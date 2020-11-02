@@ -38,11 +38,19 @@ public class ReaderTest {
     }
 
     @Test
+    public void getStoryNameTest() throws FileNotFoundException {
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        String storyName = storyReader.getStoryName(is);
+        Assertions.assertEquals(storyName, "TestStory");
+    }
+
+    @Test
     public void roomReceiverTest() throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         Assertions.assertEquals(room.toString(), "{\"Text\":\"This is the start room to the test story.\",\"Actions\":{\"Action1\":[\"This is the first action.\",\"RoomTwo\"],\"Action2\":[\"This is the second action.\",\"RoomThree\"],\"Action3\":[\"This is the third action. It will end the game.\",\"End\"]},\"Puzzle\":[\"null\",\"ifPass\",\"ifFail\"],\"Enemies\":[],\"EnemyClear\":\"null\"}");
     }
 
@@ -51,7 +59,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        storyReader.roomReceiver(rootObject, "RoomTwo");
+        storyReader.roomReceiver(rootObject, "RoomTwo", "TestStory");
     }
 
     @Test
@@ -59,7 +67,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         JsonPrimitive text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"This is the start room to the test story.\"");
     }
@@ -68,7 +76,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         JsonArray enemies = storyReader.enemyReceiver(room);
         System.out.println(enemies);
         Assertions.assertEquals(enemies.toString(), "[]");
@@ -79,7 +87,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         System.out.println(actions);
         Assertions.assertEquals(actions.toString(), "{\"Action1\":[\"This is the first action.\",\"RoomTwo\"],\"Action2\":[\"This is the second action.\",\"RoomThree\"],\"Action3\":[\"This is the third action. It will end the game.\",\"End\"]}");
@@ -90,7 +98,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         Assertions.assertEquals(actionList.size(),3);
@@ -101,7 +109,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo");
+        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         Assertions.assertEquals(actionList.size(),2);
@@ -112,7 +120,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo");
+        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         JsonArray action = actionList.get(0);
@@ -125,7 +133,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo");
+        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         JsonArray action = actionList.get(1);
@@ -138,7 +146,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo");
+        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         JsonArray action = actionList.get(0);
@@ -151,7 +159,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo");
+        JsonObject room = storyReader.roomReceiver(rootObject, "RoomTwo", "TestStory");
         JsonObject actions = storyReader.actionsReceiver(room);
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         JsonArray action = actionList.get(1);
@@ -164,7 +172,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         JsonArray puzzle = storyReader.puzzleReceiver(room);
         System.out.println(puzzle);
         Assertions.assertEquals(puzzle.toString(), "[\"null\",\"ifPass\",\"ifFail\"]");
@@ -174,7 +182,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom");
+        JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         JsonPrimitive clear = storyReader.enemyClear(room);
         System.out.println(clear);
         Assertions.assertEquals(clear.toString(), "\"null\"");
@@ -185,7 +193,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "EndWin");
+        JsonObject room = storyReader.roomReceiver(rootObject, "EndWin", "TestStory");
         JsonPrimitive text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"You have won the test story.\"");
     }
@@ -195,7 +203,7 @@ public class ReaderTest {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject room = storyReader.roomReceiver(rootObject, "EndLose");
+        JsonObject room = storyReader.roomReceiver(rootObject, "EndLose", "TestStory");
         JsonPrimitive text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"You have lost the test story.\"");
     }
