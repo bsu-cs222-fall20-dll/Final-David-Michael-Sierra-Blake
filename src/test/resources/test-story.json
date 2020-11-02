@@ -46,8 +46,12 @@
       "EnemyClear": "null"
     },
 
-    "EndLose": "You have lost the test story.",
-    "EndWin": "You have won the test story."
+    "EndLose": {
+      "Text": "You have lost the test story."
+    },
 
+    "EndWin": {
+      "Text": "You have won the test story."
+    }
   }
 }
