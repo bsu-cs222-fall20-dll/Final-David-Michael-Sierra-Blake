@@ -60,7 +60,8 @@ public class ReaderTestWaterStory {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/water-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        storyReader.roomReceiver(rootObject, "PuzzleRoom1", "WaterStory");
+        JsonObject room = storyReader.roomReceiver(rootObject, "PuzzleRoom1", "WaterStory");
+        Assertions.assertNotNull(room);
     }
 
     @Test
