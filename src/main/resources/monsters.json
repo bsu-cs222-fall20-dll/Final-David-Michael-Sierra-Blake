@@ -24,6 +24,10 @@
     "Imp": {
       "Health": 5,
       "Attack": 5
+    },
+    "Fallback": {
+      "Health": 7,
+      "Attack": 3
     }
   }
 }

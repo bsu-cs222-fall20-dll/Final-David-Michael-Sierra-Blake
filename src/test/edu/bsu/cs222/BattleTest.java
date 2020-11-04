@@ -42,4 +42,33 @@ public class BattleTest {
         JsonPrimitive skeletonHealth = battle.attackReceiver(skeleton);
         System.out.println(skeletonHealth);
     }
+
+    @Test
+    public void printFallback() throws FileNotFoundException {
+        Battle battle = new Battle();
+        JsonObject monsterList = battle.parseEnemies();
+        String monsterName = "Karen";
+        JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
+        System.out.println(monsterObject);
+    }
+
+    @Test
+    public void printFallbackHealth() throws FileNotFoundException {
+        Battle battle = new Battle();
+        JsonObject monsterList = battle.parseEnemies();
+        String monster = "Karen";
+        JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
+        JsonPrimitive skeletonHealth = battle.healthReceiver(skeleton);
+        System.out.println(skeletonHealth);
+    }
+
+    @Test
+    public void printFallbackAttack() throws FileNotFoundException {
+        Battle battle = new Battle();
+        JsonObject monsterList = battle.parseEnemies();
+        String monster = "Karen";
+        JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
+        JsonPrimitive skeletonHealth = battle.attackReceiver(skeleton);
+        System.out.println(skeletonHealth);
+    }
 }
