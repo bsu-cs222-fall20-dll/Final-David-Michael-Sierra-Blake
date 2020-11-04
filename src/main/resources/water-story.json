@@ -6,7 +6,7 @@
       "Actions": {
         "Action1": ["Go through the door.","EnemyRoom1"]
       },
-      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Puzzle": ["A golden plaque reads, 'You're running a race and pass the person in 2nd. What place are you in now?'", "ifPass", "ifFail"],
       "Enemies": [],
       "EnemyClear": "null"
     },
@@ -14,8 +14,8 @@
     "EnemyRoom1": {
       "Text": "The water floods into the next room as you open the door. Across the room, you've waken somebody else up. SomeTHING else up. A skeleton picks itself up off the floor.",
       "Actions": {
-        "Action1": ["Action 1 for fighting the skeleton.", "ActionName"],
-        "Action2": ["Action 2 for fighting the skeleton.", "ActionName"]
+        "Action1": ["You grab your sword and stab it into your foe, but your blade goes in between the bones, only hitting air.", "ActionName"],
+        "Action2": ["You unsheathe your sword and slash it through the bony ribcage, drawing a long, dark gash across the monster.", "ActionName"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": ["Skeleton"],
@@ -25,8 +25,8 @@
     "EmptyRoom2": {
       "Text": "You walk through the next door, which also contained about the same level of water. Why was there a skeleton ready to attack you? Ahead of you are two doors: one on the left, and one on the right.",
       "Actions": {
-        "Action1": ["Walk through the door on the left.", "PuzzleRoom1"],
-        "Action2": ["Walk through the door on the right.", "EnemyRoom2"],
+        "Action1": ["Walk through the wooden door on the left.", "PuzzleRoom1"],
+        "Action2": ["Walk through the metal door on the right.", "EnemyRoom2"],
         "Action3": ["Shake yourself off and wait in this room.", "EmptyRoom2-2"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
@@ -59,7 +59,7 @@
       "Text": "Behind you, you hear the rush of all the water. It seems a hole opened in the room behind you, and sucked it all up! Good thing you weren't in there.\n\nIn front of you sits some sort of puzzle. It looks important.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
-        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+        "Action2": ["You don't have time to fiddle with vague puzzles. There are much more pressing matters to attend to.", "IgnorePuzzle"]
       },
       "Puzzle": ["color", "PuzzleRoom2", "EndLose"],
       "Enemies": [],
@@ -67,10 +67,10 @@
     },
 
     "PuzzleRoom2": {
-      "Text": "As you enter the room, the door slams shut behind you, with an audible locking noise. A large puzzle sits in the center of the room. As you approach it, water slowly starts flowing out of cracks in the walls. you decide that if you're gonna do the puzzle, you'd better hurry.",
+      "Text": "As you enter the room, the door slams shut behind you, with an audible locking noise. A large puzzle sits in the center of the room. As you approach it, water slowly starts flowing out of cracks in the walls. you decide that if you're gonna do the puzzle, and you'd better hurry.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
-        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+        "Action2": ["You're not smart enough for something like this. Instead of wasting your time getting yourself killed, you ignore the puzzle and search the room instead for a way out.", "IgnorePuzzle"]
       },
       "Puzzle": ["order", "LastRoom", "EndLose"],
       "Enemies": [],
@@ -80,7 +80,7 @@
     "LastRoom": {
       "Text": "With the water up to your shoulders, you finish the puzzle. Lots of mechanical noises happen all around you, as water starts flowing through a newly opened hole in the wall. After all the water clears out, a spiral staircase slowly lowers itself down from the ceiling.",
       "Actions": {
-        "Action1": ["Exit up the staircase.","EndWin"]
+        "Action1": ["Climb up the staircase.","EndWin"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
