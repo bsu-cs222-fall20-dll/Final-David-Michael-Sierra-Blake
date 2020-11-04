@@ -3,9 +3,11 @@ package edu.bsu.cs222;
 import com.google.gson.*;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class Battle {
+    //Suppressed because although deprecated, the JsonParser is
+    //the best course of action for our project's needs and still works fully
+    @SuppressWarnings("deprecation")
     public JsonObject parseEnemies() throws FileNotFoundException {
         JsonParser parser = new JsonParser();
         Reader reader = new InputStreamReader(new FileInputStream("src/main/resources/monsters.json"));
