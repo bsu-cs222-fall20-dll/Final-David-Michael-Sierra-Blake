@@ -1,0 +1,11 @@
+{
+  "Player": {
+
+    "Stats": {
+      "AttackBonus": 0,
+      "HealthBonus": 0
+    },
+    "Attack": 4,
+    "Health": 15
+  }
+}
