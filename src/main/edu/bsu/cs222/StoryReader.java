@@ -19,8 +19,14 @@ public class StoryReader {
         return rootElement.getAsJsonObject();
     }
 
-    public JsonObject roomReceiver(JsonObject rootObject, String room) {
-        return rootObject.getAsJsonObject("TestStory").getAsJsonObject(room);
+    public String getStoryName(InputStream input) {
+        String parseValue = parse(input).toString();
+        int colonLocation = parseValue.indexOf(":");
+        return parseValue.substring(2,colonLocation - 1);
+    }
+
+    public JsonObject roomReceiver(JsonObject rootObject, String room, String story) {
+        return rootObject.getAsJsonObject(story).getAsJsonObject(room);
     }
 
     public JsonPrimitive textReceiver(JsonObject room) {

@@ -17,21 +17,21 @@ public class StoryTest {
         StoryReader storyReader = new StoryReader();
         RoomBuilder roomBuilder = new RoomBuilder();
 
-        InputStream is = new FileInputStream("src/test/resources/test-story.json");
-        JsonObject story = storyReader.parse(is);
+        JsonObject story = storyReader.parse(new FileInputStream("src/test/resources/test-story.json"));
+        String storyName = storyReader.getStoryName(new FileInputStream("src/test/resources/test-story.json"));
 
-        JsonObject firstRoomActions = roomBuilder.firstRoom(story); // Room 1
+        JsonObject firstRoomActions = roomBuilder.firstRoom(story, storyName); // Room 1
 
         ArrayList<JsonArray> actionList = storyReader.getActionList(firstRoomActions);
         String actionResult = storyReader.getActionListResult(actionList.get(0)); // First action on actionList for StartRoom
 
-        JsonObject puzzleActions = roomBuilder.nextRoom(story, actionResult); // Room 2
+        JsonObject puzzleActions = roomBuilder.nextRoom(story, actionResult, storyName); // Room 2
 
         ArrayList<JsonArray> puzzleActionList = storyReader.getActionList(puzzleActions);
         String puzzleActionResult = storyReader.getActionListResult(puzzleActionList.get(0));
-        String nextRoom = roomBuilder.puzzleRoomAction(story, actionResult, puzzleActionResult);
+        String nextRoom = roomBuilder.puzzleRoomAction(story, actionResult, puzzleActionResult, storyName);
 
-        roomBuilder.nextRoom(story, nextRoom); // Room 4
+        roomBuilder.nextRoom(story, nextRoom, storyName); // Room 4
 
 
     }
@@ -41,19 +41,19 @@ public class StoryTest {
         StoryReader storyReader = new StoryReader();
         RoomBuilder roomBuilder = new RoomBuilder();
 
-        InputStream is = new FileInputStream("src/test/resources/test-story.json");
-        JsonObject story = storyReader.parse(is);
+        JsonObject story = storyReader.parse(new FileInputStream("src/test/resources/test-story.json"));
+        String storyName = storyReader.getStoryName(new FileInputStream("src/test/resources/test-story.json"));
 
-        JsonObject firstRoomActions = roomBuilder.firstRoom(story); // Room 1
+        JsonObject firstRoomActions = roomBuilder.firstRoom(story, storyName); // Room 1
 
         ArrayList<JsonArray> actionList = storyReader.getActionList(firstRoomActions);
         String actionResult = storyReader.getActionListResult(actionList.get(0)); // First action on actionList for StartRoom
 
-        JsonObject puzzleActions = roomBuilder.nextRoom(story, actionResult); // Room 2
+        JsonObject puzzleActions = roomBuilder.nextRoom(story, actionResult, storyName); // Room 2
 
         ArrayList<JsonArray> puzzleActionList = storyReader.getActionList(puzzleActions);
         String puzzleActionResult = storyReader.getActionListResult(puzzleActionList.get(1));
-        roomBuilder.puzzleRoomAction(story, actionResult, puzzleActionResult);
+        roomBuilder.puzzleRoomAction(story, actionResult, puzzleActionResult, storyName);
     }
 
     @Test
@@ -61,15 +61,16 @@ public class StoryTest {
         StoryReader storyReader = new StoryReader();
         RoomBuilder roomBuilder = new RoomBuilder();
 
-        InputStream is = new FileInputStream("src/test/resources/test-story.json");
-        JsonObject story = storyReader.parse(is);
+        String storyName = storyReader.getStoryName(new FileInputStream("src/test/resources/test-story.json"));
+        JsonObject story = storyReader.parse(new FileInputStream("src/test/resources/test-story.json"));
 
-        JsonObject firstRoomActions = roomBuilder.firstRoom(story); // Room 1
+
+        JsonObject firstRoomActions = roomBuilder.firstRoom(story, storyName); // Room 1
 
         ArrayList<JsonArray> actionList = storyReader.getActionList(firstRoomActions);
         String actionResult = storyReader.getActionListResult(actionList.get(1)); // First action on actionList for StartRoom
 
-        JsonPrimitive enemyClear = roomBuilder.enemyRoom(story, actionResult);
-        roomBuilder.nextRoom(story, enemyClear.toString());
+        JsonPrimitive enemyClear = roomBuilder.enemyRoom(story, actionResult, storyName);
+        roomBuilder.nextRoom(story, enemyClear.toString(), storyName);
     }
 }

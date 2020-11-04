@@ -87,9 +87,13 @@
       "EnemyClear": "null"
     },
 
-    "EndLose": "With no knowledge of how you got there, you have succumbed to the watery dungeon you woke up in. Game Over.",
+    "EndLose": {
+      "Text": "With no knowledge of how you got there, you have succumbed to the watery dungeon you woke up in. Game Over."
+    },
 
-    "EndWin": "With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight."
+    "EndWin": {
+      "Text": "With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight."
+    }
 
   }
 }

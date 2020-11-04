@@ -8,57 +8,61 @@ import com.google.gson.JsonPrimitive;
 public class RoomBuilder {
     StoryReader storyReader = new StoryReader();
 
-    public JsonObject firstRoom(JsonObject story) {
-        JsonObject currentRoom = storyReader.roomReceiver(story, "StartRoom");
+    public JsonObject firstRoom(JsonObject story, String storyName) {
+        JsonObject currentRoom = storyReader.roomReceiver(story, "StartRoom", storyName);
 
         return storyReader.actionsReceiver(currentRoom);
 
 
     }
 
-    public JsonObject nextRoom(JsonObject story, String roomName) {
-        JsonObject currentRoom = storyReader.roomReceiver(story, roomName);
+    public JsonObject nextRoom(JsonObject story, String roomName, String storyName) {
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
 
         if (roomName.equals("\"LastRoom\"")) {
             lastRoom();
         } else if (!storyReader.puzzleReceiver(currentRoom).toString().equals("[\"null\", \"ifPass\", \"ifFail\"]")){
-            return puzzleRoomInitiate(story, roomName);
+            return puzzleRoomInitiate(story, roomName, storyName);
         } else if (!storyReader.enemyReceiver(currentRoom).toString().equals("[]")) {
-            enemyRoom(story, roomName);
+            enemyRoom(story, roomName, storyName);
+        } else if (roomName.equals("\"EndWin\"")) {
+            winRoom(story, roomName, storyName);
+        } else if (roomName.equals("\"EndLose\"")) {
+            loseRoom(story, roomName, storyName);
         } else {
             emptyRoom();
         }
         return null;
     }
 
-    public JsonPrimitive enemyRoom(JsonObject story, String roomName) {
+    public JsonPrimitive enemyRoom(JsonObject story, String roomName, String storyName) {
         System.out.println("Enemy Room!");
-        JsonObject currentRoom = storyReader.roomReceiver(story, roomName);
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
 
         return storyReader.enemyClear(currentRoom);
 
     }
 
-    public JsonObject puzzleRoomInitiate(JsonObject story, String roomName) {
+    public JsonObject puzzleRoomInitiate(JsonObject story, String roomName, String storyName) {
         System.out.println("Puzzle room!");
 
-        JsonObject currentRoom = storyReader.roomReceiver(story, roomName);
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
 
         return storyReader.actionsReceiver(currentRoom);
     }
 
-    public String puzzleRoomAction(JsonObject story, String roomName, String actionChoice) {
+    public String puzzleRoomAction(JsonObject story, String roomName, String actionChoice, String storyName) {
         if(actionChoice.equals("DoPuzzle")) {
-            return puzzleRoom(story, roomName);
+            return puzzleRoom(story, roomName, storyName);
         } else if (actionChoice.equals("IgnorePuzzle")) {
-            finish("EndLose");
+            loseRoom(story, roomName, storyName);
         }
         return null;
     }
 
-    public String puzzleRoom(JsonObject story, String roomName) {
+    public String puzzleRoom(JsonObject story, String roomName, String storyName) {
         System.out.println("Doing the puzzle!");
-        JsonObject currentRoom = storyReader.roomReceiver(story, roomName);
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
 
         JsonArray puzzleArray = storyReader.puzzleReceiver(currentRoom);
 
@@ -71,17 +75,19 @@ public class RoomBuilder {
     }
 
     public void lastRoom() {
-        finish("EndWin");
+
     }
 
-    public void finish(String endType) {
-        if(endType.equals("EndLose")) {
-            System.out.println("You lose the game!");
-        } else if (endType.equals("EndWin")) {
-            System.out.println("You win the game!");
-        } else {
-            System.out.println("The game has ended.");
-        }
+    public void loseRoom(JsonObject story, String roomName, String storyName) {
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
+        JsonPrimitive roomText = storyReader.textReceiver(currentRoom);
+        System.out.println(roomText);
+    }
+
+    public void winRoom(JsonObject story, String roomName, String storyName) {
+        JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
+        JsonPrimitive roomText = storyReader.textReceiver(currentRoom);
+        System.out.println(roomText);
     }
 
 
