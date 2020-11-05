@@ -80,13 +80,13 @@ public class RoomBuilder {
 
     public void loseRoom(JsonObject story, String roomName, String storyName) {
         JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
-        JsonPrimitive roomText = storyReader.textReceiver(currentRoom);
+        String roomText = storyReader.textReceiver(currentRoom);
         System.out.println(roomText);
     }
 
     public void winRoom(JsonObject story, String roomName, String storyName) {
         JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
-        JsonPrimitive roomText = storyReader.textReceiver(currentRoom);
+        String roomText = storyReader.textReceiver(currentRoom);
         System.out.println(roomText);
     }
 
