@@ -29,8 +29,8 @@ public class StoryReader {
         return rootObject.getAsJsonObject(story).getAsJsonObject(room);
     }
 
-    public JsonPrimitive textReceiver(JsonObject room) {
-        return room.getAsJsonPrimitive("Text");
+    public String textReceiver(JsonObject room) {
+        return room.getAsJsonPrimitive("Text").toString().replace("\"","");
     }
 
     public JsonArray enemyReceiver(JsonObject rootObject) {

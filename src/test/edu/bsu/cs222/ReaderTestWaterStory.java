@@ -70,7 +70,7 @@ public class ReaderTestWaterStory {
         InputStream is = new FileInputStream("src/test/resources/water-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "WaterStory");
-        JsonPrimitive text = storyReader.textReceiver(room);
+        String text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"You wake up in a cold, stone room, leaned against one of the walls. Water is dripping from the ceiling, and there's enough in the room to go up to your waist. Where are you? You look around the room. There is a door ahead of you, it's old wood looking as if it will fall apart soon.\"");
     }
     @Test
@@ -196,7 +196,7 @@ public class ReaderTestWaterStory {
         InputStream is = new FileInputStream("src/test/resources/water-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndWin", "WaterStory");
-        JsonPrimitive text = storyReader.textReceiver(room);
+        String text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight.\"");
     }
 
@@ -206,7 +206,7 @@ public class ReaderTestWaterStory {
         InputStream is = new FileInputStream("src/test/resources/water-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndLose", "WaterStory");
-        JsonPrimitive text = storyReader.textReceiver(room);
+        String text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"With no knowledge of how you got there, you have succumbed to the watery dungeon you woke up in. Game Over.\"");
     }
 }

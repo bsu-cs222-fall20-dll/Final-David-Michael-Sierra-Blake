@@ -69,7 +69,7 @@ public class ReaderTest {
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
-        JsonPrimitive text = storyReader.textReceiver(room);
+        String text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"This is the start room to the test story.\"");
     }
     @Test
@@ -195,7 +195,7 @@ public class ReaderTest {
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndWin", "TestStory");
-        JsonPrimitive text = storyReader.textReceiver(room);
+        String text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"You have won the test story.\"");
     }
 
@@ -205,7 +205,7 @@ public class ReaderTest {
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndLose", "TestStory");
-        JsonPrimitive text = storyReader.textReceiver(room);
+        String text = storyReader.textReceiver(room);
         Assertions.assertEquals(text.toString(), "\"You have lost the test story.\"");
     }
 
