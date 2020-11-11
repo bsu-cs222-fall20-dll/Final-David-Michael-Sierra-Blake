@@ -1,31 +1,36 @@
 package edu.bsu.cs222;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
+
+import java.io.FileNotFoundException;
 
 public class Enemy {
-    JsonPrimitive health;
-    JsonPrimitive attack;
+    String name;
+    int health;
+    int attack;
 
-    public Enemy(JsonObject enemyName) {
+    public Enemy(String enemyName) throws FileNotFoundException {
         Battle battle = new Battle();
-        health = battle.healthReceiver(enemyName);
-        attack = battle.attackReceiver(enemyName);
+        JsonObject enemyList = battle.parseEnemies();
+        JsonObject enemyObject = battle.receiveEnemy(enemyList, enemyName);
+        health = battle.healthReceiver(enemyObject);
+        attack = battle.attackReceiver(enemyObject);
+        name = enemyName;
     }
 
-    public void getEnemyHealth() {
-
+    public String getEnemyName() {
+        return name;
     }
 
-    public void getEnemyAttack() {
-
+    public int getEnemyHealth() {
+        return health;
     }
 
-    public void setEnemyHealth() {
-
+    public int getEnemyAttack() {
+        return attack;
     }
 
-    public void setEnemyAttack() {
-
+    public void setEnemyHealth(int damage) {
+        health = health - damage;
     }
 }
