@@ -14,56 +14,50 @@ public class PuzzleTest {
     @Test
     public void puzzleTypeTestNull() throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
-        Puzzle puzzle = new Puzzle();
+
 
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject startRoom = rootObject.getAsJsonObject("TestStory").getAsJsonObject("StartRoom");
 
-        JsonArray startRoomPuzzle = startRoom.getAsJsonArray("Puzzle");
-        String puzzleType = puzzle.puzzleType(startRoomPuzzle);
-        Assertions.assertEquals(puzzleType, "null");
+        Puzzle puzzle = new Puzzle(startRoom);
+        Assertions.assertEquals(puzzle.getPuzzleType(), "null");
     }
 
     @Test
     public void puzzleTypeTestColor() throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
-        Puzzle puzzle = new Puzzle();
 
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject startRoom = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomTwo");
+        JsonObject room = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomTwo");
 
-        JsonArray startRoomPuzzle = startRoom.getAsJsonArray("Puzzle");
-        String puzzleType = puzzle.puzzleType(startRoomPuzzle);
-        Assertions.assertEquals(puzzleType, "color");
+        Puzzle puzzle = new Puzzle(room);
+        Assertions.assertEquals(puzzle.getPuzzleType(), "color");
     }
 
     @Test
     public void puzzleTestIfPass() throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
-        Puzzle puzzle = new Puzzle();
 
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject startRoom = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomTwo");
+        JsonObject room = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomTwo");
 
-        JsonArray startRoomPuzzle = startRoom.getAsJsonArray("Puzzle");
-        String puzzleIfPass = puzzle.ifPassAction(startRoomPuzzle);
-        Assertions.assertEquals(puzzleIfPass, "LastRoom");
+        Puzzle puzzle = new Puzzle(room);
+
+        Assertions.assertEquals(puzzle.getIfPassAction(), "LastRoom");
     }
 
     @Test
     public void puzzleTestIfFail() throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
-        Puzzle puzzle = new Puzzle();
 
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
         JsonObject rootObject = storyReader.parse(is);
-        JsonObject startRoom = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomTwo");
+        JsonObject room = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomTwo");
 
-        JsonArray startRoomPuzzle = startRoom.getAsJsonArray("Puzzle");
-        String puzzleIfFail = puzzle.ifFailAction(startRoomPuzzle);
-        Assertions.assertEquals(puzzleIfFail, "EndLose");
+        Puzzle puzzle = new Puzzle(room);
+        Assertions.assertEquals(puzzle.getIfFailAction(), "EndLose");
     }
 }
