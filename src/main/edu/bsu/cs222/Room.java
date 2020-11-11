@@ -3,22 +3,34 @@ package edu.bsu.cs222;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class Room {
     String text;
-    ArrayList<String> actions;
-    ArrayList<String> actionResults;
+    ArrayList<String> actions = new ArrayList<>();
+    ArrayList<String> actionResults = new ArrayList<>();
+    Puzzle puzzle;
+    ArrayList<Enemy> enemies = new ArrayList<>();
 
-    public Room(JsonObject story, String roomName, String storyName) {
+    public Room(JsonObject story, String roomName, String storyName) throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
         JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
         text = storyReader.textReceiver(currentRoom);
-        ArrayList<JsonArray> actionList = storyReader.getActionList(storyReader.actionsReceiver(currentRoom));
-        for(JsonArray action : actionList) {
+        JsonObject actionObject = storyReader.actionsReceiver(currentRoom);
+        ArrayList<JsonArray> actionList = storyReader.getActionList(actionObject);
+        for (JsonArray action : actionList) {
             actions.add(storyReader.getActionListAction(action));
             actionResults.add(storyReader.getActionListResult(action));
         }
+        puzzle = new Puzzle(currentRoom);
+
+        JsonArray enemyArray = storyReader.enemyReceiver(currentRoom);
+        for (int i = 0; i < enemyArray.size(); i++) {
+            String enemyName = enemyArray.get(i).toString().replace("\"", "");
+            enemies.add(new Enemy(enemyName));
+        }
+
     }
 
     public String getRoomText() {
@@ -39,5 +51,17 @@ public class Room {
 
     public String getActionResult(int number) {
         return actionResults.get(number);
+    }
+
+    public Puzzle getPuzzle() {
+        return puzzle;
+    }
+
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public Enemy getEnemy(int number) {
+        return enemies.get(number);
     }
 }
