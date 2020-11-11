@@ -33,4 +33,10 @@ public class Enemy {
     public void setEnemyHealth(int damage) {
         health = health - damage;
     }
+
+    @Override
+    public String toString() {
+        return("Enemy Type: " + getEnemyName() + "\nEnemy Health: " + getEnemyHealth() + "\nEnemy Attack: " + getEnemyAttack() + "\n");
+    }
 }
+

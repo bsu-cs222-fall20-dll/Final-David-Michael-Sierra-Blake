@@ -50,4 +50,9 @@ public class Puzzle {
     public String getIfFailAction() {
         return ifFailAction;
     }
+
+    @Override
+    public String toString() {
+        return("Puzzle Type: " + getPuzzleType() + "\nOn Pass: " + getIfPassAction() + "\nOn Fail: " + getIfFailAction() + "\n");
+    }
 }
