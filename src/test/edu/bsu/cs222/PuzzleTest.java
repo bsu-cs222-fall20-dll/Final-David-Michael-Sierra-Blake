@@ -1,6 +1,5 @@
 package edu.bsu.cs222;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

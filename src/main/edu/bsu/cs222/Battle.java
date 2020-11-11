@@ -23,12 +23,12 @@ public class Battle {
         return monsterEnemy;
     }
 
-    public JsonPrimitive healthReceiver(JsonObject monster) {
-        return monster.getAsJsonPrimitive("Health");
+    public int healthReceiver(JsonObject monster) {
+        return monster.getAsJsonPrimitive("Health").getAsInt();
     }
 
-    public JsonPrimitive attackReceiver(JsonObject monster) {
-        return monster.getAsJsonPrimitive("Attack");
+    public int attackReceiver(JsonObject monster) {
+        return monster.getAsJsonPrimitive("Attack").getAsInt();
     }
 
 }

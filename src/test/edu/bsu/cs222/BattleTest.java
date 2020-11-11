@@ -1,7 +1,7 @@
 package edu.bsu.cs222;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -15,60 +15,60 @@ public class BattleTest {
     }
 
     @Test
-    public void printSkeleton() throws FileNotFoundException {
+    public void testSkeleton() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        System.out.println(skeleton);
+        Assertions.assertEquals(skeleton.toString(), "{\"Health\":8,\"Attack\":4}");
     }
 
     @Test
-    public void printSkeletonHealth() throws FileNotFoundException {
+    public void testSkeletonHealth() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        JsonPrimitive skeletonHealth = battle.healthReceiver(skeleton);
-        System.out.println(skeletonHealth);
+        int skeletonHealth = battle.healthReceiver(skeleton);
+        Assertions.assertEquals(skeletonHealth, 8);
     }
 
     @Test
-    public void printSkeletonAttack() throws FileNotFoundException {
+    public void testSkeletonAttack() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        JsonPrimitive skeletonHealth = battle.attackReceiver(skeleton);
-        System.out.println(skeletonHealth);
+        int skeletonAttack = battle.attackReceiver(skeleton);
+        Assertions.assertEquals(skeletonAttack, 4);
     }
 
     @Test
-    public void printFallback() throws FileNotFoundException {
+    public void testFallback() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
         String monsterName = "Karen";
         JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
-        System.out.println(monsterObject);
+        Assertions.assertEquals(monsterObject.toString(), "{\"Health\":7,\"Attack\":3}");
     }
 
     @Test
-    public void printFallbackHealth() throws FileNotFoundException {
+    public void testFallbackHealth() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
-        String monster = "Karen";
-        JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        JsonPrimitive skeletonHealth = battle.healthReceiver(skeleton);
-        System.out.println(skeletonHealth);
+        String monsterName = "Karen";
+        JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
+        int monsterHealth = battle.healthReceiver(monsterObject);
+        Assertions.assertEquals(monsterHealth, 7);
     }
 
     @Test
-    public void printFallbackAttack() throws FileNotFoundException {
+    public void testFallbackAttack() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
-        String monster = "Karen";
-        JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        JsonPrimitive skeletonHealth = battle.attackReceiver(skeleton);
-        System.out.println(skeletonHealth);
+        String monsterName = "Karen";
+        JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
+        int monsterAttack = battle.attackReceiver(monsterObject);
+        Assertions.assertEquals(monsterAttack, 3);
     }
 }
