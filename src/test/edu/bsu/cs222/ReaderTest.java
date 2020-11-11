@@ -70,7 +70,7 @@ public class ReaderTest {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "TestStory");
         String text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text.toString(), "\"This is the start room to the test story.\"");
+        Assertions.assertEquals(text, "\"This is the start room to the test story.\"");
     }
     @Test
     public void enemyReceiverTest() throws FileNotFoundException{
@@ -196,7 +196,7 @@ public class ReaderTest {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndWin", "TestStory");
         String text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text.toString(), "\"You have won the test story.\"");
+        Assertions.assertEquals(text, "\"You have won the test story.\"");
     }
 
     @Test
@@ -206,7 +206,7 @@ public class ReaderTest {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndLose", "TestStory");
         String text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text.toString(), "\"You have lost the test story.\"");
+        Assertions.assertEquals(text, "\"You have lost the test story.\"");
     }
 
 
