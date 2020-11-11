@@ -71,7 +71,7 @@ public class ReaderTestWaterStory {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "WaterStory");
         String text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text, "\"You wake up in a cold, stone room, leaned against one of the walls. Water is dripping from the ceiling, and there's enough in the room to go up to your waist. Where are you? You look around the room. There is a door ahead of you, it's old wood looking as if it will fall apart soon.\"");
+        Assertions.assertEquals(text, "You wake up in a cold, stone room, leaned against one of the walls. Water is dripping from the ceiling, and there's enough in the room to go up to your waist. Where are you? You look around the room. There is a door ahead of you, it's old wood looking as if it will fall apart soon.");
     }
     @Test
     public void enemyReceiverTest() throws FileNotFoundException{
@@ -197,7 +197,7 @@ public class ReaderTestWaterStory {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndWin", "WaterStory");
         String text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text, "\"With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight.\"");
+        Assertions.assertEquals(text, "With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight.");
     }
 
     @Test
@@ -207,6 +207,6 @@ public class ReaderTestWaterStory {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "EndLose", "WaterStory");
         String text = storyReader.textReceiver(room);
-        Assertions.assertEquals(text, "\"With no knowledge of how you got there, you have succumbed to the watery dungeon you woke up in. Game Over.\"");
+        Assertions.assertEquals(text, "With no knowledge of how you got there, you have succumbed to the watery dungeon you woke up in. Game Over.");
     }
 }
