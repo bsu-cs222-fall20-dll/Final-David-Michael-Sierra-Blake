@@ -93,4 +93,19 @@ public class EnemyTest {
         enemy.setEnemyHealth(damage);
         Assertions.assertEquals(enemy.getEnemyHealth(),5);
     }
+
+    @Test
+    public void testRoomThreeHit() throws FileNotFoundException {
+        StoryReader storyReader = new StoryReader();
+        InputStream is = new FileInputStream("src/test/resources/test-story.json");
+        JsonObject rootObject = storyReader.parse(is);
+        JsonObject room = rootObject.getAsJsonObject("TestStory").getAsJsonObject("RoomThree");
+
+        JsonArray enemyArray = storyReader.enemyReceiver(room);
+        String enemyName = enemyArray.get(0).toString().replace("\"", "");
+
+        Enemy enemy = new Enemy(enemyName);
+        int hit = enemy.getEnemyHit();
+        Assertions.assertEquals(hit,4);
+    }
 }

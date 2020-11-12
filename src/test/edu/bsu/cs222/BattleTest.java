@@ -44,6 +44,16 @@ public class BattleTest {
     }
 
     @Test
+    public void testSkeletonHit() throws FileNotFoundException {
+        Battle battle = new Battle();
+        JsonObject monsterList = battle.parseEnemies();
+        String monster = "Skeleton";
+        JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
+        int skeletonHit = battle.getHit(skeleton);
+        Assertions.assertEquals(skeletonHit, 4);
+    }
+
+    @Test
     public void testFallback() throws FileNotFoundException {
         Battle battle = new Battle();
         JsonObject monsterList = battle.parseEnemies();
@@ -70,5 +80,15 @@ public class BattleTest {
         JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
         int monsterAttack = battle.attackReceiver(monsterObject);
         Assertions.assertEquals(monsterAttack, 3);
+    }
+
+    @Test
+    public void testFallbackHit() throws FileNotFoundException {
+        Battle battle = new Battle();
+        JsonObject monsterList = battle.parseEnemies();
+        String monsterName = "Karen";
+        JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
+        int monsterHit = battle.getHit(monsterObject);
+        Assertions.assertEquals(monsterHit, 4);
     }
 }
