@@ -31,4 +31,8 @@ public class Battle {
         return monster.getAsJsonPrimitive("Attack").getAsInt();
     }
 
+    public int getHit(JsonObject monster) {
+        return monster.getAsJsonPrimitive("Hit").getAsInt();
+    }
+
 }
