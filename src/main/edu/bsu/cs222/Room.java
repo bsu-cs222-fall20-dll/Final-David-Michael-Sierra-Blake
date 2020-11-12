@@ -12,23 +12,29 @@ public class Room {
     ArrayList<String> actionResults = new ArrayList<>();
     Puzzle puzzle;
     ArrayList<Enemy> enemies = new ArrayList<>();
+    String enemyClear;
 
     public Room(JsonObject story, String roomName, String storyName) throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
         JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
-        text = storyReader.textReceiver(currentRoom);
-        JsonObject actionObject = storyReader.actionsReceiver(currentRoom);
-        ArrayList<JsonArray> actionList = storyReader.getActionList(actionObject);
-        for (JsonArray action : actionList) {
-            actions.add(storyReader.getActionListAction(action));
-            actionResults.add(storyReader.getActionListResult(action));
-        }
-        puzzle = new Puzzle(currentRoom);
 
-        JsonArray enemyArray = storyReader.enemyReceiver(currentRoom);
-        for (int i = 0; i < enemyArray.size(); i++) {
-            String enemyName = enemyArray.get(i).toString().replace("\"", "");
-            enemies.add(new Enemy(enemyName));
+        text = storyReader.textReceiver(currentRoom);
+        if(!roomName.equals("EndWin") && !roomName.equals("EndLose")) {
+            puzzle = new Puzzle(currentRoom);
+            enemyClear = storyReader.enemyClear(currentRoom);
+
+            JsonObject actionObject = storyReader.actionsReceiver(currentRoom);
+            ArrayList<JsonArray> actionList = storyReader.getActionList(actionObject);
+            for (JsonArray action : actionList) {
+                actions.add(storyReader.getActionListAction(action));
+                actionResults.add(storyReader.getActionListResult(action));
+            }
+
+            JsonArray enemyArray = storyReader.enemyReceiver(currentRoom);
+            for (int i = 0; i < enemyArray.size(); i++) {
+                String enemyName = enemyArray.get(i).toString().replace("\"", "");
+                enemies.add(new Enemy(enemyName));
+            }
         }
 
     }
@@ -63,5 +69,9 @@ public class Room {
 
     public Enemy getEnemy(int number) {
         return enemies.get(number);
+    }
+
+    public String getEnemyClear() {
+        return enemyClear;
     }
 }
