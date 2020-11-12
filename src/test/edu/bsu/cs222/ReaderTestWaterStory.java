@@ -80,7 +80,6 @@ public class ReaderTestWaterStory {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "WaterStory");
         JsonArray enemies = storyReader.enemyReceiver(room);
-        System.out.println(enemies);
         Assertions.assertEquals(enemies.toString(), "[]");
 
     }
@@ -91,7 +90,6 @@ public class ReaderTestWaterStory {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "WaterStory");
         JsonObject actions = storyReader.actionsReceiver(room);
-        System.out.println(actions);
         Assertions.assertEquals(actions.toString(), "{\"Action1\":[\"Go through the door.\",\"EnemyRoom1\"]}");
     }
 
@@ -176,7 +174,6 @@ public class ReaderTestWaterStory {
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "WaterStory");
         JsonArray puzzle = storyReader.puzzleReceiver(room);
-        System.out.println(puzzle);
         Assertions.assertEquals(puzzle.toString(), "[\"null\",\"ifPass\",\"ifFail\"]");
     }
     @Test
@@ -185,9 +182,8 @@ public class ReaderTestWaterStory {
         InputStream is = new FileInputStream("src/test/resources/water-story.json");
         JsonObject rootObject = storyReader.parse(is);
         JsonObject room = storyReader.roomReceiver(rootObject, "StartRoom", "WaterStory");
-        JsonPrimitive clear = storyReader.enemyClear(room);
-        System.out.println(clear);
-        Assertions.assertEquals(clear.toString(), "\"null\"");
+        String clear = storyReader.enemyClear(room);
+        Assertions.assertEquals(clear, "null");
     }
 
     @Test

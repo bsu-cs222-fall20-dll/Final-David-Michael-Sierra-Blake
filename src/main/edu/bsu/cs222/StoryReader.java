@@ -61,8 +61,8 @@ public class StoryReader {
     public JsonArray puzzleReceiver(JsonObject rootObject){
         return rootObject.getAsJsonArray("Puzzle");
     }
-    public JsonPrimitive enemyClear(JsonObject rootObject){
-        return rootObject.getAsJsonPrimitive("EnemyClear");
+    public String enemyClear(JsonObject rootObject){
+        return rootObject.getAsJsonPrimitive("EnemyClear").toString().replace("\"","");
     }
 
 
