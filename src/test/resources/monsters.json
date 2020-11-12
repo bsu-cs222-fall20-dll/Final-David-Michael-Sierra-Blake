@@ -3,31 +3,38 @@
 
     "Skeleton": {
       "Health": 8,
-      "Attack": 4
+      "Attack": 1,
+      "Hit": 4
     },
     "Vampire": {
       "Health": 8,
-      "Attack": 4
+      "Attack": 1,
+      "Hit": 4
     },
     "Orc": {
       "Health": 12,
-      "Attack": 2
+      "Attack": 1,
+      "Hit": 2
     },
     "Golem": {
       "Health": 12,
-      "Attack": 2
+      "Attack": 1,
+      "Hit": 5
     },
     "Goblin": {
       "Health": 5,
-      "Attack": 5
+      "Attack": 1,
+      "Hit": 5
     },
     "Imp": {
       "Health": 5,
-      "Attack": 5
+      "Attack": 1,
+      "Hit": 5
     },
     "Fallback": {
       "Health": 7,
-      "Attack": 3
+      "Attack": 1,
+      "Hit": 4
     }
   }
 }
