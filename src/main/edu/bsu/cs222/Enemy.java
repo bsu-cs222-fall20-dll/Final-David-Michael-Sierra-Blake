@@ -8,6 +8,7 @@ public class Enemy {
     String name;
     int health;
     int attack;
+    int hit;
 
     public Enemy(String enemyName) throws FileNotFoundException {
         Battle battle = new Battle();
@@ -16,6 +17,7 @@ public class Enemy {
         health = battle.healthReceiver(enemyObject);
         attack = battle.attackReceiver(enemyObject);
         name = enemyName;
+        hit = battle.getHit(enemyObject);
     }
 
     public String getEnemyName() {

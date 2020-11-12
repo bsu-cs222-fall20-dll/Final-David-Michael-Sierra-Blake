@@ -30,4 +30,5 @@ public class Battle {
     public int attackReceiver(JsonObject monster) {
         return monster.getAsJsonPrimitive("Attack").getAsInt();
     }
+
 }
