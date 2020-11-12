@@ -5,7 +5,8 @@
       "AttackBonus": 0,
       "HealthBonus": 0
     },
-    "Attack": 3,
-    "Health": 20
+    "Attack": 1,
+    "Health": 10,
+    "Hit": 4
   }
 }
