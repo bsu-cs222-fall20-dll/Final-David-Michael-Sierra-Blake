@@ -17,12 +17,12 @@
          <children>
             <Label text="Stats" />
             <TextArea prefHeight="110.0" prefWidth="237.0" />
-            <Label text="Skilll Point Info" />
+            <Label text="Skill Point Info" />
             <TextArea prefHeight="120.0" prefWidth="237.0" />
             <Button mnemonicParsing="false" text="Skill Point Menu" />
          </children></VBox>
-      <Button layoutX="449.0" layoutY="336.0" mnemonicParsing="false" text="Action 3" />
-      <Button layoutX="274.0" layoutY="336.0" mnemonicParsing="false" text="Action 2" />
-      <Button layoutX="81.0" layoutY="336.0" mnemonicParsing="false" text="Action 1" />
+      <Button layoutX="449.0" layoutY="336.0" mnemonicParsing="false" text="Action3" />
+      <Button layoutX="274.0" layoutY="336.0" mnemonicParsing="false" text="Action2" />
+      <Button layoutX="81.0" layoutY="336.0" mnemonicParsing="false" text="Action1" />
    </children>
 </Pane>

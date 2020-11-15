@@ -1,11 +1,14 @@
 package edu.bsu.cs222;
 import com.google.gson.JsonObject;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
@@ -24,16 +27,17 @@ public class Main extends Application{
         JsonObject storyObject = storyReader.parse(is);
         String storyName = "TestStory";
         String roomName = "StartRoom";
+        @FXML TextArea currentSituationText;
 
         while(true) {
             Room room = roomBuilder.nextRoom(storyObject, roomName, storyName);
-            String boxinfo = room.getRoomText();
-            String actionbox1title = room.getAction(0);
-            String actionbox2title = room.getAction(1);
-            String actionbox3title = room.getAction(2);
-            String actionbox1onclick = room.getActionResult(0);
-            String actionbox2onclick = room.getActionResult(1);
-            String actionbox3onclick = room.getActionResult(2);
+            String currentSituationText = room.getRoomText();
+            String action1 = room.getAction(0);
+            String action2 = room.getAction(1);
+            String action3 = room.getAction(2);
+            String action1onclick = room.getActionResult(0);
+            String action2onclick = room.getActionResult(1);
+            String action3onclick = room.getActionResult(2);
 
             break;
         }
