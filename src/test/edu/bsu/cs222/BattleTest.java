@@ -7,12 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 
 public class BattleTest {
-    @Test
-    public void printMonsters() throws FileNotFoundException {
-        Battle battle = new Battle();
-        JsonObject monsterList = battle.parseEnemies();
-        System.out.println(monsterList);
-    }
 
     @Test
     public void testSkeleton() throws FileNotFoundException {
@@ -20,7 +14,7 @@ public class BattleTest {
         JsonObject monsterList = battle.parseEnemies();
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        Assertions.assertEquals(skeleton.toString(), "{\"Health\":8,\"Attack\":4}");
+        Assertions.assertEquals(skeleton.toString(), "{\"Health\":8,\"Attack\":1,\"Hit\":4}");
     }
 
     @Test
@@ -40,7 +34,7 @@ public class BattleTest {
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
         int skeletonAttack = battle.attackReceiver(skeleton);
-        Assertions.assertEquals(skeletonAttack, 4);
+        Assertions.assertEquals(skeletonAttack, 1);
     }
 
     @Test
@@ -59,7 +53,7 @@ public class BattleTest {
         JsonObject monsterList = battle.parseEnemies();
         String monsterName = "Karen";
         JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
-        Assertions.assertEquals(monsterObject.toString(), "{\"Health\":7,\"Attack\":3}");
+        Assertions.assertEquals(monsterObject.toString(), "{\"Health\":7,\"Attack\":1,\"Hit\":4}");
     }
 
     @Test
@@ -79,7 +73,7 @@ public class BattleTest {
         String monsterName = "Karen";
         JsonObject monsterObject = battle.receiveEnemy(monsterList, monsterName);
         int monsterAttack = battle.attackReceiver(monsterObject);
-        Assertions.assertEquals(monsterAttack, 3);
+        Assertions.assertEquals(monsterAttack, 1);
     }
 
     @Test
