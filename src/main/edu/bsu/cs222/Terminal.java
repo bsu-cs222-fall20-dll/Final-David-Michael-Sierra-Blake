@@ -34,8 +34,10 @@ public class Terminal {
 
     public void printRoom(Room room){
         System.out.println(room.getRoomText());
+        int numberedChoice = 1;
         for (String action: room.getActions()) {
-            System.out.println(action);
+            System.out.println(numberedChoice + ") " + action);
+            numberedChoice++;
         }
     }
 
