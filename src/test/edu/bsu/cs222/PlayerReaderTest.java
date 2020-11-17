@@ -11,7 +11,7 @@ public class PlayerReaderTest {
     public void testPlayer() throws FileNotFoundException {
         PlayerReader playerReader = new PlayerReader();
         JsonObject playerObject = playerReader.parsePlayer();
-        Assertions.assertEquals(playerObject.toString(), "{\"Player\":{\"Stats\":{\"AttackBonus\":0,\"HealthBonus\":0},\"Attack\":1,\"Health\":10,\"Hit\":4}}");
+        Assertions.assertEquals(playerObject.toString(), "{\"Player\":{\"Stats\":{\"AttackBonus\":0,\"HealthBonus\":0},\"Attack\":1,\"Health\":20,\"Hit\":4}}");
     }
 
     @Test
@@ -19,7 +19,7 @@ public class PlayerReaderTest {
         PlayerReader playerReader = new PlayerReader();
         JsonObject playerObject = playerReader.parsePlayer();
         JsonObject player = playerReader.receivePlayer(playerObject);
-        Assertions.assertEquals(player.toString(), "{\"Stats\":{\"AttackBonus\":0,\"HealthBonus\":0},\"Attack\":1,\"Health\":10,\"Hit\":4}");
+        Assertions.assertEquals(player.toString(), "{\"Stats\":{\"AttackBonus\":0,\"HealthBonus\":0},\"Attack\":1,\"Health\":20,\"Hit\":4}");
     }
 
     @Test

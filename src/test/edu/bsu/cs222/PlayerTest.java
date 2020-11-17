@@ -51,6 +51,6 @@ public class PlayerTest {
         Player player = new Player();
         int damage = 3;
         player.setHealthAfterDamage(damage);
-        Assertions.assertEquals(player.getHealth(), 7);
+        Assertions.assertEquals(player.getHealth(), 17);
     }
 }
