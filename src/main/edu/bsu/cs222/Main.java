@@ -1,47 +1,79 @@
 package edu.bsu.cs222;
+
 import com.google.gson.JsonObject;
-import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
-public class Main extends Application{
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/MainGUI.fxml"));
-        primaryStage.setTitle("Game Title");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+public class Main {
 
+
+    public static void main(String[] args) throws FileNotFoundException {
+        String storyName;
+        String storyJson;
         StoryReader storyReader = new StoryReader();
         RoomBuilder roomBuilder = new RoomBuilder();
-        InputStream is = new FileInputStream("src/test/resources/test-story.json");
-
-        JsonObject storyObject = storyReader.parse(is);
-        String storyName = "TestStory";
+        Scanner scanner = new Scanner(System.in);
+        printMainMenu();
+        String choice = scanner.nextLine();
+        selectOption(choice);
+        JsonObject story = storyReader.parse(new FileInputStream("src/test/resources/test-story.json"));
+        storyName = "TestStory";
         String roomName = "StartRoom";
-        @FXML TextArea currentSituationText;
-
-        while(true) {
-            Room room = roomBuilder.nextRoom(storyObject, roomName, storyName);
-            String currentSituationText = room.getRoomText();
-            String action1 = room.getAction(0);
-            String action2 = room.getAction(1);
-            String action3 = room.getAction(2);
-            String action1onclick = room.getActionResult(0);
-            String action2onclick = room.getActionResult(1);
-            String action3onclick = room.getActionResult(2);
-
-            break;
+        while (true) {
+            Room room = new Room(story, roomName, storyName);
+            System.out.println(printRoom(room));
+            int actionChoice = getActionChoice();
+            roomName = room.getActionResult(actionChoice);
         }
     }
+    public static void printMainMenu(){
+        System.out.println("Game Options");
+        System.out.println("------------");
+        System.out.println("1) Water Story");
+        System.out.println("2) Quit");
+    }
+    public String getStoryName() {
+        return storyName;
+    }
 
-    public static void main(String[] args) { launch(args); }
+    public String getStoryJson() {
+        return storyJson;
+    }
+
+    public void setStoryName(String storyName) {
+        this.storyName = storyName;
+    }
+
+    public void setStoryJson(String storyJson) {
+        this.storyJson = storyJson;
+    }
+
+    public void selectOption(String choice) {
+        if (choice.equals("1")) {
+            setStoryName("WaterStory");
+            setStoryJson("storyJson");
+        } else if (choice.equals("2")) {
+            break;
+        } else {
+            System.out.println("Enter Valid Input");
+            printMainMenu();
+        }
+        return true;
+    }
+    public static void printRoom(Room room){
+        System.out.println(room.getRoomText());
+        System.out.println(room.getAction(0));
+        System.out.println(room.getAction(1));
+        System.out.println(room.getAction(2));
+
+    }
+    public static int getActionChoice(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What choice do you choose?");
+        int choice = Integer.parseInt(scanner.nextLine());
+        choice = choice - 1;
+        return choice;
+    }
 }
