@@ -9,13 +9,13 @@ public class PlayerTest {
     @Test
     public void testPlayerHealth() throws FileNotFoundException {
         Player player = new Player();
-        Assertions.assertEquals(player.getHealth(), 15);
+        Assertions.assertEquals(player.getHealth(), 20);
     }
 
     @Test
     public void testPlayerAttack() throws FileNotFoundException {
         Player player = new Player();
-        Assertions.assertEquals(player.getAttack(), 4);
+        Assertions.assertEquals(player.getAttack(), 1);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class PlayerTest {
         Player player = new Player();
         int newAttackBonus = 2;
         player.setAttackBonus(newAttackBonus);
-        Assertions.assertEquals(player.getAttack(), 6);
+        Assertions.assertEquals(player.getAttack(), 3);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class PlayerTest {
         Player player = new Player();
         int newHealthBonus = 7;
         player.setHealthBonus(newHealthBonus);
-        Assertions.assertEquals(player.getHealth(), 22);
+        Assertions.assertEquals(player.getHealth(), 27);
     }
 
     @Test
@@ -51,6 +51,6 @@ public class PlayerTest {
         Player player = new Player();
         int damage = 3;
         player.setHealthAfterDamage(damage);
-        Assertions.assertEquals(player.getHealth(), 12);
+        Assertions.assertEquals(player.getHealth(), 7);
     }
 }
