@@ -1,6 +1,27 @@
 package edu.bsu.cs222;
 
-public class BattleRoom {
+import java.io.FileNotFoundException;
+import java.util.Random;
+public class BattleRoom extends Battle {
+
+    Player player=new Player();
+    Enemy enemy=BattleRoom.getEnemy(0);
+
+    public BattleRoom() throws FileNotFoundException {
+        int dice;
+        int health;
+        dice = (int)(Math.random()*6) + 1;
+        health = battleRoom.healthReceiver(enemyObject);
+        if (dice >= getHit(1)){
+            health == health-1;
+            System.out.println("You rolled a " + dice + ". You hit. Enemy health =" + health);
+
+        }
+        else
+            System.out.println("You did not hit. Enemy health =" + health);
+
+    }
+
 
     //TODO: create a variable for the player that is a number between 1 and 6
     //TODO: grab the Player class with something like Player player = new Player();

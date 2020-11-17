@@ -3,7 +3,6 @@
     <properties maven-id="org.openjfx:javafx-base:13" />
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/javafx-base-13.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/javafx-base-13-win.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/lib/javafx-base-13-javadoc.jar!/" />
