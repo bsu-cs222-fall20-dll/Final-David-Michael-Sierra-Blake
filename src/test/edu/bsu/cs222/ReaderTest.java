@@ -12,32 +12,6 @@ import java.util.ArrayList;
 public class ReaderTest {
 
     @Test
-    public void testPrintsStartRoom() throws FileNotFoundException {
-        StoryReader storyReader = new StoryReader();
-
-        InputStream is = new FileInputStream("src/test/resources/test-story.json");
-        JsonObject rootObject = storyReader.parse(is);
-        JsonObject startRoom = rootObject.getAsJsonObject("TestStory").getAsJsonObject("StartRoom");
-
-        JsonPrimitive startRoomText = startRoom.getAsJsonPrimitive("Text");
-        JsonObject startRoomActions = startRoom.getAsJsonObject("Actions");
-        JsonArray startRoomActions1 = startRoomActions.getAsJsonArray("Action1");
-        JsonArray startRoomActions2 = startRoomActions.getAsJsonArray("Action2");
-        JsonArray startRoomActions3 = startRoomActions.getAsJsonArray("Action3");
-        JsonArray startRoomPuzzle = startRoom.getAsJsonArray("Puzzle");
-        JsonArray startRoomEnemies = startRoom.getAsJsonArray("Enemies");
-        JsonPrimitive startRoomEnemyClear = startRoom.getAsJsonPrimitive("EnemyClear");
-
-        System.out.println(startRoomText);
-        System.out.println(startRoomActions1);
-        System.out.println(startRoomActions2);
-        System.out.println(startRoomActions3);
-        System.out.println(startRoomPuzzle);
-        System.out.println(startRoomEnemies);
-        System.out.println(startRoomEnemyClear);
-    }
-
-    @Test
     public void getStoryNameTest() throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
         InputStream is = new FileInputStream("src/test/resources/test-story.json");
