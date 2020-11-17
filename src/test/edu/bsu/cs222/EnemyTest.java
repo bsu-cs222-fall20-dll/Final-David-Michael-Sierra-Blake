@@ -75,7 +75,7 @@ public class EnemyTest {
         String enemyName = enemyArray.get(0).toString().replace("\"", "");
 
         Enemy enemy = new Enemy(enemyName);
-        Assertions.assertEquals(enemy.getEnemyAttack(),4);
+        Assertions.assertEquals(enemy.getEnemyAttack(),1);
     }
 
     @Test
