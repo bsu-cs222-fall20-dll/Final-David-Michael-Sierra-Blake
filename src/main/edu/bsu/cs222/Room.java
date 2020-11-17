@@ -6,6 +6,8 @@ import com.google.gson.JsonObject;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import static java.lang.System.exit;
+
 public class Room {
     String text;
     ArrayList<String> actions = new ArrayList<>();
@@ -18,6 +20,10 @@ public class Room {
         StoryReader storyReader = new StoryReader();
         JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
 
+        if (roomName.equals("End")) {
+            System.out.println("Ending game.");
+            exit(0);
+        }
         text = storyReader.textReceiver(currentRoom);
         if(!roomName.equals("EndWin") && !roomName.equals("EndLose")) {
             puzzle = new Puzzle(currentRoom);
