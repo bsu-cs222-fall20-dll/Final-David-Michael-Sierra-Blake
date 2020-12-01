@@ -51,7 +51,7 @@ public class StoryReader {
     }
 
     public String getActionListAction(JsonArray action) {
-        return (action.get(0).toString());
+        return (action.get(0).toString().replace("\"", ""));
     }
 
     public String getActionListResult(JsonArray action) {

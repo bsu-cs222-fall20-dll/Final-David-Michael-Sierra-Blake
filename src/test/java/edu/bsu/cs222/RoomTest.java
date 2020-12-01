@@ -46,7 +46,7 @@ public class RoomTest {
         String roomName = "StartRoom";
 
         Room room = new Room(storyObject, roomName, storyName);
-        Assertions.assertEquals(room.getActions().toString(), "[\"This is the first action.\", \"This is the second action.\", \"This is the third action. It will end the game.\"]");
+        Assertions.assertEquals(room.getActions().toString(), "[This is the first action., This is the second action., This is the third action. It will end the game.]");
     }
 
     @Test
@@ -59,7 +59,7 @@ public class RoomTest {
         String roomName = "StartRoom";
 
         Room room = new Room(storyObject, roomName, storyName);
-        Assertions.assertEquals(room.getAction(1), "\"This is the second action.\"");
+        Assertions.assertEquals(room.getAction(1), "This is the second action.");
     }
 
     @Test
