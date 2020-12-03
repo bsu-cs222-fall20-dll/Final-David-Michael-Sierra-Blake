@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs222.Controller">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="37.0" layoutY="45.0" prefHeight="255.0" prefWidth="237.0" spacing="10.0">
          <children>
@@ -21,8 +21,8 @@
             <TextArea fx:id="skillPointField" prefHeight="120.0" prefWidth="237.0" />
             <Button mnemonicParsing="false" onAction="#displayMenu" text="Skill Point Menu" />
          </children></VBox>
-      <Button layoutX="449.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAction3" text="Action3" textAlignment="CENTER" textFill="#111111" />
-      <Button layoutX="274.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAction2" text="Action2" />
-      <Button layoutX="81.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAction1" text="Action1" />
+      <Button fx:id="actionButton3" layoutX="449.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAction3" text="Action2" />
+      <Button fx:id="actionButton2" layoutX="274.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAction2" text="Action2" />
+      <Button fx:id="actionButton1" layoutX="81.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAction1" text="Action1" />
    </children>
 </Pane>
