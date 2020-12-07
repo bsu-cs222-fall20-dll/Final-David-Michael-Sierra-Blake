@@ -7,12 +7,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 import static java.lang.System.exit;
+
 
 public class GUI {
     Room room;
@@ -25,6 +24,7 @@ public class GUI {
     Button actionButton1 = new Button();
     Button actionButton2 = new Button();
     Button actionButton3 = new Button();
+    Button exitButton = new Button();
     TextArea roomText = new TextArea();
 
 
@@ -63,6 +63,9 @@ public class GUI {
                 e.printStackTrace();
             }
         });
+        exitButton.setOnAction(actionEvent -> {
+            exit(0);
+        });
     }
 
     public void createGame(Stage primaryStage) {
@@ -81,10 +84,13 @@ public class GUI {
     }
 
     public void update(JsonObject storyObject, String roomName) throws FileNotFoundException, InterruptedException {
+        //Removing this InterruptedException throw causes errors above, but keeping it causes a warning here. Therefore, keeping it here.
         this.room = roomBuilder.nextRoom(storyObject, roomName, storyName);
         roomText.setText(room.getRoomText());
         actionResults.clear();
 
+        exitButton.setText("Exit");
+        exitButton.setVisible(false);
         actionButton2.setText("");
         actionButton3.setText("");
         actionButton2.setVisible(false);
@@ -92,9 +98,13 @@ public class GUI {
 
         Puzzle puzzle = room.getPuzzle();
 
-        if(room.getEnemies().size() > 0) {
+        if (room.getAction(0) == null) {
+            exitButton.setVisible(true);
+            actionButton1.setVisible(false);
+            actionButton2.setVisible(false);
+            actionButton3.setVisible(false);
+        } else if(room.getEnemies().size() > 0) {
             actionResults.add(battleRoom.battle(room, actionButton1, roomText));
-
         } else if (!puzzle.getPuzzleType().equals("null")) {
             actionButton2.setText(room.getAction(1));
             actionButton1.setText(room.getAction(0));
