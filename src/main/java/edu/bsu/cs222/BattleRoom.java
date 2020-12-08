@@ -1,4 +1,4 @@
-package java.edu.bsu.cs222;
+package edu.bsu.cs222;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
