@@ -2,32 +2,32 @@
   "Monsters": {
 
     "Skeleton": {
-      "Health": 8,
+      "Health": 6,
       "Attack": 1,
       "Hit": 4
     },
     "Vampire": {
-      "Health": 8,
+      "Health": 6,
       "Attack": 1,
       "Hit": 4
     },
     "Orc": {
-      "Health": 12,
+      "Health": 10,
       "Attack": 1,
       "Hit": 2
     },
     "Golem": {
-      "Health": 12,
+      "Health": 10,
       "Attack": 1,
       "Hit": 5
     },
     "Goblin": {
-      "Health": 5,
+      "Health": 3,
       "Attack": 1,
       "Hit": 5
     },
     "Imp": {
-      "Health": 5,
+      "Health": 3,
       "Attack": 1,
       "Hit": 5
     },
