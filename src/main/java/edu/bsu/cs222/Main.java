@@ -9,18 +9,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        String storyName = "WaterStory";
-        String roomName = "StartRoom";
 
-        StoryReader storyReader = new StoryReader();
-        RoomBuilder roomBuilder = new RoomBuilder();
-        InputStream is = new FileInputStream("src/main/resources/water-story.json");
-
-        JsonObject storyObject = storyReader.parse(is);
-
-        GUI gui = new GUI(primaryStage, storyName, roomName, storyObject);
-
-        gui.setRoom(roomBuilder.nextRoom(storyObject, roomName, storyName));
+        MainMenu mainMenu = new MainMenu(primaryStage);
 
     }
 }
