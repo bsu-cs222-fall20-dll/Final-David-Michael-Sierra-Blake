@@ -25,7 +25,7 @@
     "EmptyRoom2": {
       "Text": "You try and go back the way you came, but the cave entrance collapses in on you, completely blocking the entrance! You try and move the rocks, but to no avail. So much for going back....",
       "Actions": {
-        "Action1": ["Go through the door.", "PuzzleRoom1"],
+        "Action1": ["Go through the door.", "PuzzleRoom1"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
