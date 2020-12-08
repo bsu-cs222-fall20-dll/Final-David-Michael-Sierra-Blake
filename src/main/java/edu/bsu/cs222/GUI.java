@@ -77,6 +77,7 @@ public class GUI {
         parent.getChildren().add(actionButton1);
         parent.getChildren().add(actionButton2);
         parent.getChildren().add(actionButton3);
+        parent.getChildren().add(exitButton);
         parent.getChildren().add(roomText);
 
         primaryStage.setScene(new Scene(parent));
@@ -98,7 +99,8 @@ public class GUI {
 
         Puzzle puzzle = room.getPuzzle();
 
-        if (room.getAction(0) == null) {
+        if (room.getExitRoom()) {
+            System.out.println("working!");
             exitButton.setVisible(true);
             actionButton1.setVisible(false);
             actionButton2.setVisible(false);
