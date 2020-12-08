@@ -15,6 +15,7 @@ public class Room {
     Puzzle puzzle;
     ArrayList<Enemy> enemies = new ArrayList<>();
     String enemyClear;
+    Boolean exitRoom;
 
     public Room(JsonObject story, String roomName, String storyName) throws FileNotFoundException {
         StoryReader storyReader = new StoryReader();
@@ -41,7 +42,12 @@ public class Room {
                 String enemyName = enemyArray.get(i).toString().replace("\"", "");
                 enemies.add(new Enemy(enemyName));
             }
+            exitRoom = false;
+
+        } else {
+            exitRoom = true;
         }
+
 
     }
 
@@ -80,4 +86,6 @@ public class Room {
     public String getEnemyClear() {
         return enemyClear;
     }
+
+    public Boolean getExitRoom() { return exitRoom;}
 }

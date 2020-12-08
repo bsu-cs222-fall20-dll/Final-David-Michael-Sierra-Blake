@@ -1,0 +1,122 @@
+{
+  "CaveStory": {
+
+    "StartRoom": {
+      "Text": "You're wondering around the nearby forest on the hunt for food. As you're searching for something to eat, you stumble across a cave entrance lit with torches inside. You've been in this forest multiple times before, but have never seen this...",
+      "Actions": {
+        "Action1": ["Go through the door.","EmptyRoom1"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EmptyRoom1": {
+      "Text": "Against better judgement, you go through the cave entrance. Once inside, you come across a cave filled with intricate carvings, along with a singular door.",
+      "Actions": {
+        "Action1": ["Go through the door.", "PuzzleRoom1"],
+        "Action2": ["Go back the way you came.", "EmptyRoom2"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "EmptyRoom2"
+    },
+
+    "EmptyRoom2": {
+      "Text": "You try and go back the way you came, but the cave entrance collapses in on you, completely blocking the entrance! You try and move the rocks, but to no avail. So much for going back....",
+      "Actions": {
+        "Action1": ["Go through the door.", "PuzzleRoom1"],
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "PuzzleRoom1": {
+      "Text": "You stumble across something on the wall. *INSERT PUZZLE DESCRPITION HERE*",
+      "Actions": {
+        "Action1": ["Attempt the puzzle.", "DoPuzzle"],
+        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+      },
+      "Puzzle": ["color", "PuzzleRoom2", "EndLose"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EnemyRoom1": {
+      "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
+      "Actions": {
+        "Action1": ["Fight!.", "AttackAction"],
+        "Action2": ["Just stand there and let death take you.", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Skeleton"],
+      "EnemyClear": "EmptyRoom3"
+    },
+
+    "EmptyRoom3": {
+      "Text": "Having slain the skeleton (for now), the door on the other side of the room now opens up. You walk through, and sure enough, the door you came through slams shut. You see two doors on either side of the room with two different symbols. On the left, a sword; on the right, a puzzle piece. Which do you choose to go through?",
+      "Actions": {
+        "Action1": ["Sword room!.", "EnemyRoom2"],
+        "Action2": ["Puzzle piece room!.", "PuzzleRoom2"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "PuzzleRoom2": {
+      "Text": "You decide to go through the puzzle door. As you enter the room, the door slams shut behind you. A large puzzle sits in the center of the room. INSERT PUZZLE DESCRIPTION HERE.",
+      "Actions": {
+        "Action1": ["Attempt the puzzle.", "DoPuzzle"],
+        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+      },
+      "Puzzle": ["order", "EmptyRoom4", "EndLose"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EnemyRoom2": {
+      "Text": "You decide to go through the sword door. The door shuts behind you, and you stumble across a very familiar sight: bones in a pile, rumbling and forming together. Only this time, there are two piles of bones. You can only assume this means two skeletons, and you mentally brace for impact.",
+      "Actions": {
+        "Action1": ["Fight!.", "AttackAction"],
+        "Action2": ["Just stand there and let death take you.", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Skeleton", "Skeleton"],
+      "EnemyClear": "EmptyRoom4"
+    },
+
+    "EmptyRoom4": {
+      "Text": "You go through to the next room, where three doorways lie ahead of you. Two of which have symbols very familiar to you, a sword and a puzzle piece. The last door is simply unmarked. Which door do you go through?",
+      "Actions": {
+        "Action1": ["Sword room!.", "EnemyRoom2"],
+        "Action2": ["Puzzle piece room!.", "PuzzleRoom2"],
+        "Action3": ["Unmarked room!", "LastRoom"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "LastRoom": {
+      "Text": "You figure that you might as well go through the unmarked door, since you have a good idea what lies behind the other two. As you do, you walk into a room with a opening leading outside! You think to yourself, this looks vey similar to the entrance I came in at....You turn around to look at the door you came through, and to your surprise, it's gone, leaving the room the exact way the entrance was when you got there..",
+      "Actions": {
+        "Action1": ["Exit through the entrance?.","EndWin"],
+        "Action2": ["Go through the door (WARNING: this starts the game over again)", "PuzzleRoom1"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EndLose": {
+      "Text": "Whether it is through death by skeleton, or death by dehydration, you perish in the strange cave you foolishly decided to enter. Game Over."
+    },
+
+    "EndWin": {
+      "Text": "You simply walk through the cave opening, without any knowledge of how it got there and how you got to the beginning cave entrance to begin with. You simply go about your day after that, and make a nice soup or something out of the food you found in the forest. Best not to think too hard about what you experienced today. You win! (Kind of)."
+    }
+
+  }
+}
