@@ -97,7 +97,7 @@ public class ReaderTest {
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         JsonArray action = actionList.get(0);
         String actionResult = storyReader.getActionListAction(action);
-        Assertions.assertEquals(actionResult, "\"Attempt the puzzle.\"");
+        Assertions.assertEquals(actionResult, "Attempt the puzzle.");
     }
 
     @Test
@@ -110,7 +110,7 @@ public class ReaderTest {
         ArrayList<JsonArray> actionList = storyReader.getActionList(actions);
         JsonArray action = actionList.get(1);
         String actionResult = storyReader.getActionListAction(action);
-        Assertions.assertEquals(actionResult, "\"Ignore the puzzle.\"");
+        Assertions.assertEquals(actionResult, "Ignore the puzzle.");
     }
 
     @Test

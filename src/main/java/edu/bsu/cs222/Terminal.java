@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Terminal {
+    /*
 
     public void printMainMenu(){
         System.out.println("Game Options");
@@ -94,5 +95,7 @@ public class Terminal {
             return puzzle.getIfPassAction();
         }
     }
+
+     */
 
 }
