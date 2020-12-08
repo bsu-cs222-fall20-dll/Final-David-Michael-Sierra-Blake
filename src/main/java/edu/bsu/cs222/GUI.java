@@ -173,14 +173,6 @@ public class GUI {
         return room;
     }
 
-    public String puzzleAction(Puzzle puzzle) {
-        int actionChoice = choice;
-        if(actionChoice == 1) {
-            return "EndLose";
-        } else {
-            return puzzle.getIfPassAction();
-        }
-    }
 
     public void setActionChoice(int actionChoice) {
         choice = actionChoice;
