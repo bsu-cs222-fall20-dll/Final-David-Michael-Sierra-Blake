@@ -63,9 +63,7 @@ public class GUI {
                 e.printStackTrace();
             }
         });
-        exitButton.setOnAction(actionEvent -> {
-            exit(0);
-        });
+        exitButton.setOnAction(actionEvent -> exit(0));
     }
 
     public void createGame(Stage primaryStage) {
