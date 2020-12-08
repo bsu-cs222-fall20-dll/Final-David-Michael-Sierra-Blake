@@ -33,7 +33,9 @@ public class Main extends Application {
 
         GUI gui = new GUI(primaryStage, storyName, roomName, storyObject);
 
+
         gui.setRoom(roomBuilder.nextRoom(storyObject, roomName, storyName));
+
 
     }
 }
