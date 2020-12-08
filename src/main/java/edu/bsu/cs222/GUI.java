@@ -37,6 +37,11 @@ public class GUI {
         this.storyName = storyName;
 
         createGame(primaryStage);
+        beautifyText();
+        beautifyActionButton1();
+        beautifyActionButton2();
+        beautifyActionButton3();
+        beautifyExitButton();
         update(storyObject, roomName);
 
         actionButton1.setOnAction(actionEvent -> {
@@ -72,14 +77,48 @@ public class GUI {
         primaryStage.setWidth((750));
         primaryStage.setTitle("Dungeon Game");
 
+        parent.getChildren().add(roomText);
         parent.getChildren().add(actionButton1);
         parent.getChildren().add(actionButton2);
         parent.getChildren().add(actionButton3);
         parent.getChildren().add(exitButton);
-        parent.getChildren().add(roomText);
 
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();
+    }
+
+    public void beautifyText() {
+        roomText.setTranslateX(187);
+        roomText.setTranslateY(125);
+        roomText.setMaxHeight(200);
+        roomText.setMaxWidth(350);
+        roomText.setWrapText(true);
+    }
+
+    public void beautifyActionButton1() {
+        actionButton1.setTranslateX(30);
+        actionButton1.setTranslateY(200);
+        actionButton1.setMaxHeight(30);
+        actionButton1.centerShapeProperty();
+    }
+
+    public void beautifyActionButton2() {
+        actionButton2.setTranslateX(280);
+        actionButton2.setTranslateY(175);
+        actionButton2.setMaxHeight(30);
+    }
+
+    public void beautifyActionButton3() {
+        actionButton3.setTranslateX(720);
+        actionButton3.setTranslateY(150);
+        actionButton3.setMaxHeight(30);
+    }
+
+    public void beautifyExitButton() {
+        exitButton.setTranslateX(350);
+        exitButton.setTranslateY(125);
+        exitButton.setMaxHeight(30);
+        exitButton.setMinWidth(50);
     }
 
     public void update(JsonObject storyObject, String roomName) throws FileNotFoundException, InterruptedException {
@@ -98,7 +137,6 @@ public class GUI {
         Puzzle puzzle = room.getPuzzle();
 
         if (room.getExitRoom()) {
-            System.out.println("working!");
             exitButton.setVisible(true);
             actionButton1.setVisible(false);
             actionButton2.setVisible(false);
@@ -109,7 +147,8 @@ public class GUI {
             actionButton2.setText(room.getAction(1));
             actionButton1.setText(room.getAction(0));
             actionButton2.setVisible(true);
-            actionResults.add(puzzleAction(puzzle));
+            actionResults.add(puzzle.getIfPassAction());
+            actionResults.add(puzzle.getIfFailAction());
         } else {
             actionButton1.setText(room.getAction(0));
             actionResults.add(room.getActionResult(0));
