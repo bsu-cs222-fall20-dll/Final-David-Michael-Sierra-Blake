@@ -19,6 +19,8 @@ public class GUI {
     String storyName;
     ArrayList<String> actionResults = new ArrayList<>();
     int choice;
+    Boolean puzzleRoom = false;
+    Puzzle puzzle;
 
 
     Button actionButton1 = new Button();
@@ -46,8 +48,12 @@ public class GUI {
 
         actionButton1.setOnAction(actionEvent -> {
             try {
-                setActionChoice(0);
-                update(storyObject, actionResults.get(0));
+                if(puzzleRoom) {
+                    new RPS(primaryStage, storyName, storyObject, puzzle);
+                } else {
+                    setActionChoice(0);
+                    update(storyObject, actionResults.get(0));
+                }
             } catch (FileNotFoundException | InterruptedException e) {
                 e.printStackTrace();
             }
@@ -134,7 +140,7 @@ public class GUI {
         actionButton2.setVisible(false);
         actionButton3.setVisible(false);
 
-        Puzzle puzzle = room.getPuzzle();
+        puzzle = room.getPuzzle();
 
         if (room.getExitRoom()) {
             exitButton.setVisible(true);
@@ -149,6 +155,7 @@ public class GUI {
             actionButton2.setVisible(true);
             actionResults.add(puzzle.getIfPassAction());
             actionResults.add(puzzle.getIfFailAction());
+            puzzleRoom = true;
         } else {
             actionButton1.setText(room.getAction(0));
             actionResults.add(room.getActionResult(0));
