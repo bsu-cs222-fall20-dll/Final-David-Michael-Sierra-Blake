@@ -37,7 +37,7 @@ public class RPS {
                         System.out.println("You Win");
                 }else{
                         System.out.println(playerMove + " vs " + gameMove);
-                        System.out.println("You Lost!");
+                        System.out.println("You Lost");
                 }
         }
 }
