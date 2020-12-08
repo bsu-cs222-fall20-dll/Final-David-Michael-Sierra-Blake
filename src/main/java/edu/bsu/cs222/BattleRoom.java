@@ -1,4 +1,4 @@
-package edu.bsu.cs222;
+package java.edu.bsu.cs222;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
