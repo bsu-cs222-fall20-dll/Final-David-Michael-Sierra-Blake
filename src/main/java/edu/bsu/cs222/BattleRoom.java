@@ -10,9 +10,6 @@ public class BattleRoom extends Battle {
 
 
     public String battle(Room room, Button actionButton1, TextArea roomText) throws FileNotFoundException {
-        System.out.println();
-        System.out.println();
-
         StringBuilder battleText = new StringBuilder();
 
         int dice;
@@ -21,8 +18,7 @@ public class BattleRoom extends Battle {
         ArrayList<Enemy> enemyArrayList = room.getEnemies();
 
         for(Enemy enemy: enemyArrayList) {
-            System.out.println();
-            battleText.append("Enemy: ").append(enemy.getEnemyName());
+            battleText.append("\nEnemy: ").append(enemy.getEnemyName());
             while(enemy.getEnemyHealth() > 0) {
                 dice = (int) (Math.random() * 6) + 1;
                 if (dice > enemy.getEnemyHit()) {
@@ -43,8 +39,6 @@ public class BattleRoom extends Battle {
             }
         }
         roomText.setText(battleText.toString());
-        System.out.println();
-        System.out.println();
         actionButton1.setText("Continue to next room");
         return room.getEnemyClear();
     }
