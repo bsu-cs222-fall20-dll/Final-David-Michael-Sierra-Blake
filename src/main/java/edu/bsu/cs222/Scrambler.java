@@ -6,7 +6,8 @@ import com.google.gson.JsonParser;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -77,6 +78,16 @@ public class Scrambler {
         primaryStage.setWidth((750));
         primaryStage.setTitle("Dungeon Game");
 
+        BackgroundImage myBI= null;
+        try {
+            myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/snow-background.jpg"),640*1.5,384*1.5,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        parent.setBackground(new Background(myBI));
+
         parent.getChildren().add(displayText);
         parent.getChildren().add(inputText);
         parent.getChildren().add(submitButton);
@@ -132,8 +143,10 @@ public class Scrambler {
     }
 
     public void beautifyWordText() {
-        wordText.setTranslateX(120);
-        wordText.setTranslateY(100);
+        wordText.setTranslateX(135);
+        wordText.setTranslateY(102);
+        wordText.setScaleX(2);
+        wordText.setScaleY(2);
         wordText.setVisible(true);
     }
 

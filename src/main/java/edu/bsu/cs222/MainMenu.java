@@ -4,7 +4,8 @@ import com.google.gson.JsonObject;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -78,6 +79,16 @@ public class MainMenu {
         primaryStage.setHeight(500);
         primaryStage.setWidth((750));
         primaryStage.setTitle("Dungeon Game");
+
+        BackgroundImage myBI= null;
+        try {
+            myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/dungeon-wall.jpg"),1024,1024,false,true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        parent.setBackground(new Background(myBI));
 
         parent.getChildren().add(menuText);
         parent.getChildren().add(storyButton1);

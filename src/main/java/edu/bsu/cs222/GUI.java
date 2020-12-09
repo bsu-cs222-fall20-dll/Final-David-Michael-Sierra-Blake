@@ -92,7 +92,7 @@ public class GUI {
         BackgroundImage myBI= null;
         try {
             myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/ice-cave-background.png"),1188,681,false,true),
-                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                     BackgroundSize.DEFAULT);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -4,9 +4,11 @@ import com.google.gson.JsonObject;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
@@ -89,6 +91,16 @@ public class RPS {
                 primaryStage.setHeight(500);
                 primaryStage.setWidth((750));
                 primaryStage.setTitle("Dungeon Game");
+
+                BackgroundImage myBI= null;
+                try {
+                        myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/dragon-cave.gif"),640*1.5,384*1.5,false,true),
+                                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                                BackgroundSize.DEFAULT);
+                } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                }
+                parent.setBackground(new Background(myBI));
 
                 parent.getChildren().add(displayText);
                 parent.getChildren().add(rockButton);
