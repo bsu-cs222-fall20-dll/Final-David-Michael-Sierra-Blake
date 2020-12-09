@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import static java.lang.System.exit;
 
@@ -38,7 +37,7 @@ public class MainMenu {
     String caveStoryName = "CaveStory";
 
 
-    public MainMenu(Stage primaryStage) throws FileNotFoundException, InterruptedException {
+    public MainMenu(Stage primaryStage) throws FileNotFoundException{
 
         createMenu(primaryStage);
         beautifyText();
@@ -51,7 +50,7 @@ public class MainMenu {
             try {
                 GUI gui = new GUI(primaryStage, waterStoryName, "StartRoom", waterStoryObject);
                 gui.setRoom(roomBuilder.nextRoom(waterStoryObject, "StartRoom", waterStoryName));
-            } catch (FileNotFoundException | InterruptedException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
@@ -59,7 +58,7 @@ public class MainMenu {
             try {
                 GUI gui = new GUI(primaryStage, dreamStoryName, "StartRoom", dreamStoryObject);
                 gui.setRoom(roomBuilder.nextRoom(dreamStoryObject, "StartRoom", dreamStoryName));
-            } catch (FileNotFoundException | InterruptedException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
@@ -67,7 +66,7 @@ public class MainMenu {
             try {
                 GUI gui = new GUI(primaryStage, caveStoryName, "StartRoom", caveStoryObject);
                 gui.setRoom(roomBuilder.nextRoom(caveStoryObject, "StartRoom", caveStoryName));
-            } catch (FileNotFoundException | InterruptedException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });

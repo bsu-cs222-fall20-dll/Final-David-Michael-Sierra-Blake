@@ -42,7 +42,7 @@ public class RPS {
                                                 winningThrow();
                                         }
                                 }
-                        } catch (FileNotFoundException | InterruptedException e) {
+                        } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                         }
                 });
@@ -60,7 +60,7 @@ public class RPS {
                                                 winningThrow();
                                         }
                                 }
-                        } catch (FileNotFoundException | InterruptedException e) {
+                        } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                         }
                 });
@@ -78,7 +78,7 @@ public class RPS {
                                                 winningThrow();
                                         }
                                 }
-                        } catch (FileNotFoundException | InterruptedException e) {
+                        } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                         }
                 });

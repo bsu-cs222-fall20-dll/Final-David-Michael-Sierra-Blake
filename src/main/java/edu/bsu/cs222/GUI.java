@@ -34,7 +34,7 @@ public class GUI {
     BattleRoom battleRoom = new BattleRoom();
 
 
-    public GUI(Stage primaryStage, String storyName, String roomName, JsonObject storyObject) throws FileNotFoundException, InterruptedException {
+    public GUI(Stage primaryStage, String storyName, String roomName, JsonObject storyObject) throws FileNotFoundException {
         this.roomName = roomName;
         this.storyName = storyName;
 
@@ -54,7 +54,7 @@ public class GUI {
                     setActionChoice(0);
                     update(storyObject, actionResults.get(0));
                 }
-            } catch (FileNotFoundException | InterruptedException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
@@ -62,7 +62,7 @@ public class GUI {
             try {
                 setActionChoice(1);
                 update(storyObject, actionResults.get(1));
-            } catch (FileNotFoundException | InterruptedException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
@@ -70,7 +70,7 @@ public class GUI {
             try {
                 setActionChoice(2);
                 update(storyObject, actionResults.get(2));
-            } catch (FileNotFoundException | InterruptedException e) {
+            } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
@@ -127,8 +127,7 @@ public class GUI {
         exitButton.setMinWidth(50);
     }
 
-    public void update(JsonObject storyObject, String roomName) throws FileNotFoundException, InterruptedException {
-        //Removing this InterruptedException throw causes errors above, but keeping it causes a warning here. Therefore, keeping it here.
+    public void update(JsonObject storyObject, String roomName) throws FileNotFoundException {
         this.room = roomBuilder.nextRoom(storyObject, roomName, storyName);
         roomText.setText(room.getRoomText());
         actionResults.clear();

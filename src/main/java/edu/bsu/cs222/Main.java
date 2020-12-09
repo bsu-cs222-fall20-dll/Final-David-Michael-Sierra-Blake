@@ -6,7 +6,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        MainMenu mainMenu = new MainMenu(primaryStage);
-
+        new MainMenu(primaryStage);
     }
 }
