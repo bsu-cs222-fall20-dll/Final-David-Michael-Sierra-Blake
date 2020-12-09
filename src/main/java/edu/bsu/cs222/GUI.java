@@ -50,7 +50,13 @@ public class GUI {
         actionButton1.setOnAction(actionEvent -> {
             try {
                 if(puzzleRoom) {
-                    new Calculator(primaryStage, storyName, storyObject, puzzle);
+                    if(puzzle.getPuzzleType().equalsIgnoreCase("calculator")) {
+                        new Calculator(primaryStage, storyName, storyObject, puzzle);
+                    } else if (puzzle.getPuzzleType().equalsIgnoreCase("rps")) {
+                        new RPS(primaryStage, storyName, storyObject, puzzle);
+                    } else {
+                        new Scrambler(primaryStage, storyName, storyObject, puzzle);
+                    }
                 } else {
                     setActionChoice(0);
                     update(storyObject, actionResults.get(0));
