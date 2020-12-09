@@ -61,7 +61,7 @@ public class EnemyTest {
         String enemyName = enemyArray.get(0).toString().replace("\"", "");
 
         Enemy enemy = new Enemy(enemyName);
-        Assertions.assertEquals(enemy.getEnemyHealth(),8);
+        Assertions.assertEquals(enemy.getEnemyHealth(),6);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class EnemyTest {
         Enemy enemy = new Enemy(enemyName);
         int damage = 3;
         enemy.setEnemyHealth(damage);
-        Assertions.assertEquals(enemy.getEnemyHealth(),5);
+        Assertions.assertEquals(enemy.getEnemyHealth(),3);
     }
 
     @Test

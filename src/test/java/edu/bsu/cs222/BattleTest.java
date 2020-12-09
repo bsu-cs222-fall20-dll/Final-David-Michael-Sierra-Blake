@@ -14,7 +14,7 @@ public class BattleTest {
         JsonObject monsterList = battle.parseEnemies();
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
-        Assertions.assertEquals(skeleton.toString(), "{\"Health\":8,\"Attack\":1,\"Hit\":4}");
+        Assertions.assertEquals(skeleton.toString(), "{\"Health\":6,\"Attack\":1,\"Hit\":4}");
     }
 
     @Test
@@ -24,7 +24,7 @@ public class BattleTest {
         String monster = "Skeleton";
         JsonObject skeleton = battle.receiveEnemy(monsterList, monster);
         int skeletonHealth = battle.healthReceiver(skeleton);
-        Assertions.assertEquals(skeletonHealth, 8);
+        Assertions.assertEquals(skeletonHealth, 6);
     }
 
     @Test
