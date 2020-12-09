@@ -41,6 +41,9 @@
       "Unscrambled": "Arcs",
       "Scrambled": "Cars"
     },
-    "Fallback":{}
+    "Fallback":{
+      "Unscrambled": "Chum",
+      "Scrambled": "Much"
+    }
   }
 }
