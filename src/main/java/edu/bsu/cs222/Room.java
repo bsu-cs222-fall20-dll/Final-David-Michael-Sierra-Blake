@@ -25,7 +25,7 @@ public class Room {
             System.out.println("Ending game.");
             exit(0);
         }
-        text = storyReader.textReceiver(currentRoom);
+        text = storyReader.textReceiver(currentRoom).replace("\\n", "\n");
         if(!roomName.equals("EndWin") && !roomName.equals("EndLose")) {
             puzzle = new Puzzle(currentRoom);
             enemyClear = storyReader.enemyClear(currentRoom);
