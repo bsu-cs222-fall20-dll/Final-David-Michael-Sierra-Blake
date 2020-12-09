@@ -61,7 +61,7 @@
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
       },
-      "Puzzle": ["color", "PuzzleRoom2", "EndLose"],
+      "Puzzle": ["calculator", "PuzzleRoom2", "EndLose"],
       "Enemies": [],
       "EnemyClear": "null"
     },
@@ -72,7 +72,7 @@
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
       },
-      "Puzzle": ["order", "LastRoom", "EndLose"],
+      "Puzzle": ["rps", "LastRoom", "EndLose"],
       "Enemies": [],
       "EnemyClear": "null"
     },
