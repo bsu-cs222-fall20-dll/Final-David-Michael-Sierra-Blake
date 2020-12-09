@@ -100,7 +100,7 @@ public class Calculator {
         displayText.setMaxHeight(100);
         displayText.setMaxWidth(350);
         displayText.setWrapText(true);
-        displayText.setText("Welcome to Calculator. Find the correct answer to the math problem shown. If you fail twice, you lose. Be sure to properly round, when necessary.");
+        displayText.setText("Welcome to Calculator. Find the correct answer to the math problem shown. If you fail twice, you lose. Be sure to round down, when necessary.");
     }
 
     public void beautifyInputText() {
