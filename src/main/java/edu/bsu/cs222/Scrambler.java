@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -21,9 +22,10 @@ public class Scrambler {
     Button exitButton = new Button();
     TextArea displayText = new TextArea();
     TextArea inputText = new TextArea();
-    TextArea wordText = new TextArea();
+    Text wordText = new Text();
     Boolean leave = false;
-    int tries = 5;
+    int tries = 0;
+    String wordScrambled = "";
     String word = "";
     String guess = "";
 
@@ -38,16 +40,16 @@ public class Scrambler {
         beautifyWordText();
 
         try {
-            word = receiveWord(parseWordScrambler(), randomizeWord());
+            receiveWord(parseWordScrambler(), randomizeWord());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        wordText.setText(word);
+        wordText.setText(wordScrambled);
 
 
         submitButton.setOnAction(actionEvent -> {
-            guess = submitButton.getText();
+            guess = inputText.getText();
             checkWord();
         });
         continueButton.setOnAction(actionEvent -> {
@@ -73,9 +75,11 @@ public class Scrambler {
         primaryStage.setTitle("Dungeon Game");
 
         parent.getChildren().add(displayText);
+        parent.getChildren().add(inputText);
         parent.getChildren().add(submitButton);
         parent.getChildren().add(continueButton);
         parent.getChildren().add(exitButton);
+        parent.getChildren().add(wordText);
 
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();
@@ -92,14 +96,13 @@ public class Scrambler {
     }
 
     public void beautifyInputText() {
-        inputText.setTranslateX(187);
-        inputText.setTranslateY(175);
-        inputText.setMaxHeight(200);
-        inputText.setMaxWidth(350);
+        inputText.setTranslateX(100);
+        inputText.setTranslateY(235);
+        inputText.setMaxHeight(30);
+        inputText.setMaxWidth(150);
         inputText.setWrapText(true);
         inputText.setText("");
     }
-
 
     public void beautifySubmitButton() {
         submitButton.setTranslateX(30);
@@ -114,7 +117,7 @@ public class Scrambler {
         continueButton.setTranslateY(175);
         continueButton.setMaxHeight(30);
         continueButton.setText("Continue to next room");
-        exitButton.setVisible(false);
+        continueButton.setVisible(false);
     }
 
     public void beautifyExitButton() {
@@ -126,8 +129,9 @@ public class Scrambler {
     }
 
     public void beautifyWordText() {
-        wordText.setTranslateX(250);
-        wordText.setTranslateY(125);
+        wordText.setTranslateX(120);
+        wordText.setTranslateY(100);
+        wordText.setVisible(true);
     }
 
     public String randomizeWord() {
@@ -142,22 +146,26 @@ public class Scrambler {
         return rootElement.getAsJsonObject();
     }
 
-    public String receiveWord(JsonObject rootObject, String dictionary) {
+    public void receiveWord(JsonObject rootObject, String dictionary) {
         JsonObject wordScrambler = rootObject.getAsJsonObject("Dictionary").getAsJsonObject(dictionary);
         if (wordScrambler == null) {
             wordScrambler = rootObject.getAsJsonObject("Dictionary").getAsJsonObject("Fallback");
         }
-        return wordScrambler.toString().replace("\"", "");
+
+        wordScrambled = wordScrambler.getAsJsonPrimitive("Scrambled").toString().replace("\"", "");
+        word =  wordScrambler.getAsJsonPrimitive("Unscrambled").toString().replace("\"", "");
     }
 
     public void checkWord() {
-        if(word.equalsIgnoreCase(guess)) {
+        if(guess.equalsIgnoreCase(word)) {
             displayText.setText("You guessed correctly!");
             exitButton.setVisible(false);
             submitButton.setVisible(false);
             continueButton.setVisible(true);
             continueButton.setText("Continue to next room");
             leave = true;
+        } else if (guess.equalsIgnoreCase("")) {
+            displayText.setText("You must input an answer.");
         } else {
             tries += 1;
             displayText.setText("You guess incorrectly! One guess remaining!");
