@@ -4,13 +4,14 @@ import com.google.gson.JsonObject;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import static java.lang.System.exit;
 
 
 public class GUI {
@@ -49,7 +50,7 @@ public class GUI {
         actionButton1.setOnAction(actionEvent -> {
             try {
                 if(puzzleRoom) {
-                    new RPS(primaryStage, storyName, storyObject, puzzle);
+                    new Scrambler(primaryStage, storyName, storyObject, puzzle);
                 } else {
                     setActionChoice(0);
                     update(storyObject, actionResults.get(0));
@@ -74,7 +75,13 @@ public class GUI {
                 e.printStackTrace();
             }
         });
-        exitButton.setOnAction(actionEvent -> exit(0));
+        exitButton.setOnAction(actionEvent -> {
+            try {
+                new MainMenu(primaryStage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void createGame(Stage primaryStage) {
@@ -82,6 +89,15 @@ public class GUI {
         primaryStage.setHeight(500);
         primaryStage.setWidth((750));
         primaryStage.setTitle("Dungeon Game");
+        BackgroundImage myBI= null;
+        try {
+            myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/ice-cave-background.png"),1188,681,false,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        parent.setBackground(new Background(myBI));
 
         parent.getChildren().add(roomText);
         parent.getChildren().add(actionButton1);
@@ -109,13 +125,13 @@ public class GUI {
     }
 
     public void beautifyActionButton2() {
-        actionButton2.setTranslateX(280);
+        actionButton2.setTranslateX(250);
         actionButton2.setTranslateY(175);
         actionButton2.setMaxHeight(30);
     }
 
     public void beautifyActionButton3() {
-        actionButton3.setTranslateX(720);
+        actionButton3.setTranslateX(475);
         actionButton3.setTranslateY(150);
         actionButton3.setMaxHeight(30);
     }
