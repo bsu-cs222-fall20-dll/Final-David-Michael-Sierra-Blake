@@ -28,6 +28,8 @@ public class Scrambler {
     String wordScrambled = "";
     String word = "";
     String guess = "";
+    int dictionaryLength = 0;
+    JsonObject parsedObject;
 
     public Scrambler(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle) {
 
@@ -40,7 +42,8 @@ public class Scrambler {
         beautifyWordText();
 
         try {
-            receiveWord(parseWordScrambler(), randomizeWord());
+            parsedObject = parseWordScrambler();
+            receiveWord(parsedObject, randomizeWord());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -135,7 +138,7 @@ public class Scrambler {
     }
 
     public String randomizeWord() {
-        int rand = (int) (Math.random() * 10);
+        int rand = (int) (Math.random() * dictionaryLength);
         return "Word" + rand;
     }
 
@@ -143,6 +146,7 @@ public class Scrambler {
         JsonParser parser = new JsonParser();
         Reader reader = new InputStreamReader(new FileInputStream("src/main/resources/dictionary.json"));
         JsonElement rootElement = parser.parse(reader);
+        dictionaryLength = rootElement.getAsJsonObject().getAsJsonObject("Dictionary").size();
         return rootElement.getAsJsonObject();
     }
 
