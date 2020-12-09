@@ -50,7 +50,7 @@ public class GUI {
         actionButton1.setOnAction(actionEvent -> {
             try {
                 if(puzzleRoom) {
-                    new Scrambler(primaryStage, storyName, storyObject, puzzle);
+                    new Calculator(primaryStage, storyName, storyObject, puzzle);
                 } else {
                     setActionChoice(0);
                     update(storyObject, actionResults.get(0));
