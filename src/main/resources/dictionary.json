@@ -3,44 +3,44 @@
 
     "Word1": {
       "Unscrambled": "Sword",
-      "Scrambled": "Words",
+      "Scrambled": "Words"
     },
     "Word2": {
       "Unscrambled": "Rescue",
-      "Scrambled": "Secure",
+      "Scrambled": "Secure"
     },
     "Word3": {
       "Unscrambled": "Fired",
-      "Scrambled": "Fried",
+      "Scrambled": "Fried"
     },
     "Word4": {
       "Unscrambled": "Finder",
-      "Scrambled": "Friend",
+      "Scrambled": "Friend"
     },
     "Word5": {
       "Unscrambled": "Time",
-      "Scrambled": "Item",
+      "Scrambled": "Item"
     },
     "Word6": {
       "Unscrambled": "Sink",
-      "Scrambled": "Skin",
+      "Scrambled": "Skin"
     },
     "Word7": {
       "Unscrambled": "Nose",
-      "Scrambled": "Ones",
+      "Scrambled": "Ones"
     },
     "Word8": {
       "Unscrambled": "Bats",
-      "Scrambled": "Stab",
+      "Scrambled": "Stab"
     },
     "Word9": {
       "Unscrambled": "Veil",
-      "Scrambled": "Evil",
+      "Scrambled": "Evil"
     },
     "Word10": {
       "Unscrambled": "Arcs",
-      "Scrambled": "Cars",
+      "Scrambled": "Cars"
     },
     "Fallback":{}
-  },
+  }
 }
