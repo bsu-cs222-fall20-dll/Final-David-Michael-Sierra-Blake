@@ -151,6 +151,20 @@ public class GUI {
 
     public void update(JsonObject storyObject, String roomName) throws FileNotFoundException {
         this.room = roomBuilder.nextRoom(storyObject, roomName, storyName);
+        updateInitial();
+
+        if (room.getExitRoom()) {
+            updateExitRoom();
+        } else if(room.getEnemies().size() > 0) {
+            actionResults.add(battleRoom.battle(room, actionButton1, roomText));
+        } else if (!puzzle.getPuzzleType().equals("null")) {
+            updatePuzzleRoom();
+        } else {
+            updateNormalRoom();
+        }
+    }
+
+    public void updateInitial() {
         roomText.setText(room.getRoomText());
         actionResults.clear();
 
@@ -162,33 +176,35 @@ public class GUI {
         actionButton3.setVisible(false);
 
         puzzle = room.getPuzzle();
+    }
 
-        if (room.getExitRoom()) {
-            exitButton.setVisible(true);
-            actionButton1.setVisible(false);
-            actionButton2.setVisible(false);
-            actionButton3.setVisible(false);
-        } else if(room.getEnemies().size() > 0) {
-            actionResults.add(battleRoom.battle(room, actionButton1, roomText));
-        } else if (!puzzle.getPuzzleType().equals("null")) {
+    public void updateExitRoom() {
+        exitButton.setVisible(true);
+        actionButton1.setVisible(false);
+        actionButton2.setVisible(false);
+        actionButton3.setVisible(false);
+    }
+
+    public void updatePuzzleRoom() {
+        actionButton2.setText(room.getAction(1));
+        actionButton1.setText(room.getAction(0));
+        actionButton2.setVisible(true);
+        actionResults.add(puzzle.getIfPassAction());
+        actionResults.add(puzzle.getIfFailAction());
+        puzzleRoom = true;
+    }
+
+    public void updateNormalRoom() {
+        actionButton1.setText(room.getAction(0));
+        actionResults.add(room.getActionResult(0));
+        if (room.getActions().size() > 1) {
             actionButton2.setText(room.getAction(1));
-            actionButton1.setText(room.getAction(0));
             actionButton2.setVisible(true);
-            actionResults.add(puzzle.getIfPassAction());
-            actionResults.add(puzzle.getIfFailAction());
-            puzzleRoom = true;
-        } else {
-            actionButton1.setText(room.getAction(0));
-            actionResults.add(room.getActionResult(0));
-            if (room.getActions().size() > 1) {
-                actionButton2.setText(room.getAction(1));
-                actionButton2.setVisible(true);
-                actionResults.add(room.getActionResult(1));
-                if (room.getActions().size() > 2) {
-                    actionButton3.setText(room.getAction(2));
-                    actionButton3.setVisible(true);
-                    actionResults.add(room.getActionResult(2));
-                }
+            actionResults.add(room.getActionResult(1));
+            if (room.getActions().size() > 2) {
+                actionButton3.setText(room.getAction(2));
+                actionButton3.setVisible(true);
+                actionResults.add(room.getActionResult(2));
             }
         }
     }
