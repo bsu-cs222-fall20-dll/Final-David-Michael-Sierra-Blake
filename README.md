@@ -1,4 +1,5 @@
 # Final-David-Michael-Sierra-Blake (Dungeon Simulator)
+Contributors: David Flores, Blake Egger, Michael Heckman
 
 This is a dungeon crawler style text based game. The user's end goal is to find the exit to the dungeon. You will be able to navigate through various rooms. You will encounter monsters and puzzles along the way.
 
