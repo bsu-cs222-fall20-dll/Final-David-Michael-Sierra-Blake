@@ -71,8 +71,19 @@ public class GUI {
         });
         actionButton2.setOnAction(actionEvent -> {
             try {
-                setActionChoice(1);
-                update(storyObject, actionResults.get(1));
+                if(puzzleRoom) {
+                    player.setHealthAfterDamage(5);
+                    if (player.getHealth() <= 0) {
+                        setActionChoice(1);
+                        update(storyObject, actionResults.get(1));
+                    } else {
+                        setActionChoice(0);
+                        update(storyObject, actionResults.get(0));
+                    }
+                } else {
+                    setActionChoice(1);
+                    update(storyObject, actionResults.get(1));
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
