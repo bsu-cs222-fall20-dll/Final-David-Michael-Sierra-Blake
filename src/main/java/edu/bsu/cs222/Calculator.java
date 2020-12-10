@@ -30,7 +30,7 @@ public class Calculator {
     int secondNumber = 0;
     String symbol = "";
 
-    public Calculator(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle) {
+    public Calculator(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle, Player player) {
 
         createGUI(primaryStage);
         beautifyText();
@@ -52,14 +52,14 @@ public class Calculator {
         });
         continueButton.setOnAction(actionEvent -> {
             try {
-                new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject);
+                new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject, player);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
         exitButton.setOnAction(actionEvent -> {
             try {
-                new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject);
+                new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject, player);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

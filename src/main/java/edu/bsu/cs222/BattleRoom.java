@@ -3,17 +3,15 @@ package edu.bsu.cs222;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class BattleRoom extends Battle {
 
 
-    public String battle(Room room, Button actionButton1, TextArea roomText) throws FileNotFoundException {
+    public String battle(Room room, Button actionButton1, TextArea roomText, Player player) {
         StringBuilder battleText = new StringBuilder();
 
         int dice;
-        Player player = new Player();
 
         ArrayList<Enemy> enemyArrayList = room.getEnemies();
 

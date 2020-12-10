@@ -22,6 +22,7 @@ public class GUI {
     int choice;
     Boolean puzzleRoom = false;
     Puzzle puzzle;
+    Player player;
 
 
     Button actionButton1 = new Button();
@@ -35,9 +36,10 @@ public class GUI {
     BattleRoom battleRoom = new BattleRoom();
 
 
-    public GUI(Stage primaryStage, String storyName, String roomName, JsonObject storyObject) throws FileNotFoundException {
+    public GUI(Stage primaryStage, String storyName, String roomName, JsonObject storyObject, Player player) throws FileNotFoundException {
         this.roomName = roomName;
         this.storyName = storyName;
+        this.player = player;
 
         createGame(primaryStage);
         beautifyText();
@@ -51,11 +53,11 @@ public class GUI {
             try {
                 if(puzzleRoom) {
                     if(puzzle.getPuzzleType().equalsIgnoreCase("calculator")) {
-                        new Calculator(primaryStage, storyName, storyObject, puzzle);
+                        new Calculator(primaryStage, storyName, storyObject, puzzle, player);
                     } else if (puzzle.getPuzzleType().equalsIgnoreCase("rps")) {
-                        new RPS(primaryStage, storyName, storyObject, puzzle);
+                        new RPS(primaryStage, storyName, storyObject, puzzle, player);
                     } else {
-                        new Scrambler(primaryStage, storyName, storyObject, puzzle);
+                        new Scrambler(primaryStage, storyName, storyObject, puzzle, player);
                     }
                 } else {
                     setActionChoice(0);
@@ -156,7 +158,7 @@ public class GUI {
         if (room.getExitRoom()) {
             updateExitRoom();
         } else if(room.getEnemies().size() > 0) {
-            actionResults.add(battleRoom.battle(room, actionButton1, roomText));
+            actionResults.add(battleRoom.battle(room, actionButton1, roomText, player));
         } else if (!puzzle.getPuzzleType().equals("null")) {
             updatePuzzleRoom();
         } else {

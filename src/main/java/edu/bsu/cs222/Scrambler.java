@@ -32,7 +32,7 @@ public class Scrambler {
     int dictionaryLength = 0;
     JsonObject parsedObject;
 
-    public Scrambler(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle) {
+    public Scrambler(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle, Player player) {
 
         createGUI(primaryStage);
         beautifyText();
@@ -58,14 +58,14 @@ public class Scrambler {
         });
         continueButton.setOnAction(actionEvent -> {
             try {
-                new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject);
+                new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject, player);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
         });
         exitButton.setOnAction(actionEvent -> {
             try {
-                new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject);
+                new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject, player);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

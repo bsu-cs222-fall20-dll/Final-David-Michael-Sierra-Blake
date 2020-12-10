@@ -49,7 +49,8 @@ public class MainMenu {
 
         storyButton1.setOnAction(actionEvent -> {
             try {
-                GUI gui = new GUI(primaryStage, waterStoryName, "StartRoom", waterStoryObject);
+                Player player = new Player();
+                GUI gui = new GUI(primaryStage, waterStoryName, "StartRoom", waterStoryObject, player);
                 gui.setRoom(roomBuilder.nextRoom(waterStoryObject, "StartRoom", waterStoryName));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -57,7 +58,8 @@ public class MainMenu {
         });
         storyButton2.setOnAction(actionEvent -> {
             try {
-                GUI gui = new GUI(primaryStage, dreamStoryName, "StartRoom", dreamStoryObject);
+                Player player = new Player();
+                GUI gui = new GUI(primaryStage, dreamStoryName, "StartRoom", dreamStoryObject, player);
                 gui.setRoom(roomBuilder.nextRoom(dreamStoryObject, "StartRoom", dreamStoryName));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -65,7 +67,8 @@ public class MainMenu {
         });
         storyButton3.setOnAction(actionEvent -> {
             try {
-                GUI gui = new GUI(primaryStage, caveStoryName, "StartRoom", caveStoryObject);
+                Player player = new Player();
+                GUI gui = new GUI(primaryStage, caveStoryName, "StartRoom", caveStoryObject, player);
                 gui.setRoom(roomBuilder.nextRoom(caveStoryObject, "StartRoom", caveStoryName));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

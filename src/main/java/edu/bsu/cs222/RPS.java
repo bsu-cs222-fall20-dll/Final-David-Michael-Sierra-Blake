@@ -22,7 +22,7 @@ public class RPS {
         int tries = 0;
 
 
-        public RPS(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle) {
+        public RPS(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle, Player player) {
 
                 createGUI(primaryStage);
                 beautifyText();
@@ -33,7 +33,7 @@ public class RPS {
                 rockButton.setOnAction(actionEvent -> {
                         try {
                                 if(leave) {
-                                        new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject);
+                                        new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject, player);
                                 } else {
                                         match("rock");
                                 }
@@ -44,7 +44,7 @@ public class RPS {
                 paperButton.setOnAction(actionEvent -> {
                         try {
                                 if(leave) {
-                                        new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject);
+                                        new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject, player);
                                 } else {
                                         match("paper");
                                 }
