@@ -55,11 +55,11 @@ public class GUI {
             try {
                 if(puzzleRoom) {
                     if(puzzle.getPuzzleType().equalsIgnoreCase("calculator")) {
-                        new Calculator(primaryStage, storyName, storyObject, puzzle, player);
+                        new Calculator(primaryStage, storyName, storyObject, puzzle, this.player);
                     } else if (puzzle.getPuzzleType().equalsIgnoreCase("rps")) {
-                        new RPS(primaryStage, storyName, storyObject, puzzle, player);
+                        new RPS(primaryStage, storyName, storyObject, puzzle, this.player);
                     } else {
-                        new Scrambler(primaryStage, storyName, storyObject, puzzle, player);
+                        new Scrambler(primaryStage, storyName, storyObject, puzzle, this.player);
                     }
                 } else {
                     setActionChoice(0);

@@ -19,11 +19,11 @@ public class RPS {
         TextArea displayText = new TextArea();
         String throwType = "";
         Boolean leave = false;
-        int tries = 0;
+        Player player;
 
 
         public RPS(Stage primaryStage, String storyName, JsonObject storyObject, Puzzle puzzle, Player player) {
-
+                this.player = player;
                 createGUI(primaryStage);
                 beautifyText();
                 beautifyRockButton();
@@ -33,7 +33,7 @@ public class RPS {
                 rockButton.setOnAction(actionEvent -> {
                         try {
                                 if(leave) {
-                                        new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject, player);
+                                        new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject, this.player);
                                 } else {
                                         match("rock");
                                 }
@@ -44,7 +44,7 @@ public class RPS {
                 paperButton.setOnAction(actionEvent -> {
                         try {
                                 if(leave) {
-                                        new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject, player);
+                                        new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject, this.player);
                                 } else {
                                         match("paper");
                                 }
@@ -87,7 +87,7 @@ public class RPS {
                 displayText.setMaxHeight(200);
                 displayText.setMaxWidth(350);
                 displayText.setWrapText(true);
-                displayText.setText("Welcome to Rock Paper Scissors. Try to guess the correct throw against the computers. If you win, you get to move on.");
+                displayText.setText("Welcome to Rock Paper Scissors. Try to guess the correct throw against the computers. If you win a throw, you get to move on. If you lose a throw, you take two damage. The battle ends when you lose all health or win a throw.\n\nCurrent health: " + player.getHealth());
         }
 
         public void beautifyRockButton() {
@@ -147,7 +147,7 @@ public class RPS {
         }
 
         public void winningThrow() {
-                displayText.setText("You win!");
+                displayText.setText("You win!\n\nCurrent health: " + player.getHealth());
                 paperButton.setVisible(false);
                 scissorsButton.setVisible(false);
                 rockButton.setText("Continue to next room");
@@ -155,26 +155,18 @@ public class RPS {
         }
 
         public void losingThrow() {
-                displayText.setText("You lost the throw!");
-                tries += 1;
-                if (tries >= 3) {
+                player.setHealthAfterDamage(2);
+                displayText.setText("You lost the throw! You take two damage!\n\nCurrent health: " + player.getHealth());
+                if (player.getHealth() <= 0) {
                         rockButton.setVisible(false);
                         scissorsButton.setVisible(false);
                         paperButton.setText("Exit");
-                        displayText.setText("You lost the third throw! You lose the puzzle!");
+                        displayText.setText("You lost the throw! You take two damage!\n\nYou lost all your health! You lose the puzzle!");
                         leave = true;
                 }
         }
 
         public void tieThrow() {
                 displayText.setText("A tie! Try again.");
-                tries += 1;
-                if (tries >= 3) {
-                        rockButton.setVisible(false);
-                        scissorsButton.setVisible(false);
-                        paperButton.setText("Exit");
-                        displayText.setText("You tied the third throw! You lose the puzzle!");
-                        leave = true;
-                }
         }
 }
