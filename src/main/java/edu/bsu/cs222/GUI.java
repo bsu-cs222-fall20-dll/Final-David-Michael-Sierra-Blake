@@ -29,6 +29,7 @@ public class GUI {
     Button actionButton2 = new Button();
     Button actionButton3 = new Button();
     Button exitButton = new Button();
+    Button statsButton = new Button();
     TextArea roomText = new TextArea();
 
 
@@ -47,6 +48,7 @@ public class GUI {
         beautifyActionButton2();
         beautifyActionButton3();
         beautifyExitButton();
+        beautifyStatsButton();
         update(storyObject, roomName);
 
         actionButton1.setOnAction(actionEvent -> {
@@ -90,6 +92,7 @@ public class GUI {
                 e.printStackTrace();
             }
         });
+        statsButton.setOnAction(actionEvent -> new PlayerGUI(primaryStage, storyName, this.roomName, storyObject, player));
     }
 
     public void createGame(Stage primaryStage) {
@@ -112,6 +115,7 @@ public class GUI {
         parent.getChildren().add(actionButton2);
         parent.getChildren().add(actionButton3);
         parent.getChildren().add(exitButton);
+        parent.getChildren().add(statsButton);
 
         primaryStage.setScene(new Scene(parent));
         primaryStage.show();
@@ -151,7 +155,16 @@ public class GUI {
         exitButton.setMinWidth(50);
     }
 
+    public void beautifyStatsButton() {
+        statsButton.setTranslateX(550);
+        statsButton.setTranslateY(125);
+        statsButton.setMaxHeight(30);
+        statsButton.setMinWidth(50);
+        statsButton.setText("Stats Menu");
+    }
+
     public void update(JsonObject storyObject, String roomName) throws FileNotFoundException {
+        this.roomName = roomName;
         this.room = roomBuilder.nextRoom(storyObject, roomName, storyName);
         updateInitial();
 
@@ -176,6 +189,7 @@ public class GUI {
         actionButton3.setText("");
         actionButton2.setVisible(false);
         actionButton3.setVisible(false);
+        statsButton.setVisible(false);
 
         puzzle = room.getPuzzle();
     }
@@ -199,6 +213,7 @@ public class GUI {
     public void updateNormalRoom() {
         actionButton1.setText(room.getAction(0));
         actionResults.add(room.getActionResult(0));
+        statsButton.setVisible(true);
         if (room.getActions().size() > 1) {
             actionButton2.setText(room.getAction(1));
             actionButton2.setVisible(true);
