@@ -2,7 +2,7 @@
   "CaveStory": {
 
     "StartRoom": {
-      "Text": "You're wondering around the nearby forest on the hunt for food. As you're searching for something to eat, you stumble across a cave entrance lit with torches inside. You've been in this forest multiple times before, but have never seen this...",
+      "Text": "You're wandering around the nearby forest on the hunt for food. As you're searching for something to eat, you stumble across a cave entrance lit with torches inside. You've been in this forest multiple times before, but have never seen this...",
       "Actions": {
         "Action1": ["Go through the door.","EmptyRoom1"]
       },
@@ -46,7 +46,7 @@
     "EnemyRoom1": {
       "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
       "Actions": {
-        "Action1": ["Fight!.", "EnemyRoom1.5"],
+        "Action1": ["Fight!", "EnemyRoom1.5"],
         "Action2": ["Just stand there and let death take you.", "EndLose"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
@@ -57,7 +57,7 @@
     "EnemyRoom1.5": {
       "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
       "Actions": {
-        "Action1": ["Fight!.", "AttackAction"],
+        "Action1": ["Fight!", "AttackAction"],
         "Action2": ["Just stand there and let death take you.", "EndLose"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
@@ -68,8 +68,8 @@
     "EmptyRoom3": {
       "Text": "Having slain the skeleton (for now), the door on the other side of the room now opens up. You walk through, and sure enough, the door you came through slams shut. You see two doors on either side of the room with two different symbols. On the left, a sword; on the right, a puzzle piece. Which do you choose to go through?",
       "Actions": {
-        "Action1": ["Sword room!.", "EnemyRoom2"],
-        "Action2": ["Puzzle piece room!.", "PuzzleRoom2"]
+        "Action1": ["Sword room!", "EnemyRoom2"],
+        "Action2": ["Puzzle piece room!", "PuzzleRoom2"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
@@ -90,7 +90,7 @@
     "EnemyRoom2": {
       "Text": "You decide to go through the sword door. The door shuts behind you, and you stumble across a very familiar sight: bones in a pile, rumbling and forming together. Only this time, there are two piles of bones. You can only assume this means two skeletons, and you mentally brace for impact.",
       "Actions": {
-        "Action1": ["Fight!.", "EnemyRoom2.5"],
+        "Action1": ["Fight!", "EnemyRoom2.5"],
         "Action2": ["Just stand there and let death take you.", "EndLose"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
@@ -101,7 +101,7 @@
     "EnemyRoom2.5": {
       "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
       "Actions": {
-        "Action1": ["Fight!.", "AttackAction"],
+        "Action1": ["Fight!", "AttackAction"],
         "Action2": ["Just stand there and let death take you.", "EndLose"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
@@ -112,8 +112,8 @@
     "EmptyRoom4": {
       "Text": "You go through to the next room, where three doorways lie ahead of you. Two of which have symbols very familiar to you, a sword and a puzzle piece. The last door is simply unmarked. Which door do you go through?",
       "Actions": {
-        "Action1": ["Sword room!.", "EnemyRoom2"],
-        "Action2": ["Puzzle piece room!.", "PuzzleRoom2"],
+        "Action1": ["Sword room!", "EnemyRoom2"],
+        "Action2": ["Puzzle piece room!", "PuzzleRoom2"],
         "Action3": ["Unmarked room!", "LastRoom"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
@@ -124,7 +124,7 @@
     "LastRoom": {
       "Text": "You figure that you might as well go through the unmarked door, since you have a good idea what lies behind the other two. As you do, you walk into a room with a opening leading outside! You think to yourself, this looks vey similar to the entrance I came in at....You turn around to look at the door you came through, and to your surprise, it's gone, leaving the room the exact way the entrance was when you got there..",
       "Actions": {
-        "Action1": ["Exit through the entrance?.","EndWin"],
+        "Action1": ["Exit through the entrance?","EndWin"],
         "Action2": ["Go through the door (WARNING: this starts the game over again)", "PuzzleRoom1"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],

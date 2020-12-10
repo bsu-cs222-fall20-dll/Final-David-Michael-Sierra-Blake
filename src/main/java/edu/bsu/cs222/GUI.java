@@ -213,13 +213,15 @@ public class GUI {
     }
 
     public void updatePuzzleRoom() {
-        actionButton2.setText(room.getAction(1));
         actionButton1.setText(room.getAction(0));
-        actionButton2.setVisible(true);
         actionResults.add(puzzle.getIfPassAction());
         actionResults.add(puzzle.getIfFailAction());
         statsButton.setVisible(true);
         puzzleRoom = true;
+        if (!puzzle.getIfPassAction().equalsIgnoreCase("LastRoom")) {
+            actionButton2.setText(room.getAction(1));
+            actionButton2.setVisible(true);
+        }
     }
 
     public void updateNormalRoom() {

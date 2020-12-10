@@ -2,7 +2,7 @@
   "DreamStory": {
 
     "StartRoom": {
-      "Text": " You're laying in bed. Your eyes are getting heavy, and just as they shut, you're wide awake. Standing in an open field, the only thing visible is a giant hole straight ahead.",
+      "Text": "You're laying in bed. Your eyes are getting heavy, and just as they shut, you're wide awake. Standing in an open field, the only thing visible is a giant hole straight ahead.",
       "Actions": {
         "Action1": ["Jump into hole","EnemyRoom1"]
       },
@@ -12,17 +12,17 @@
     },
 
     "EnemyRoom1": {
-      "Text": "You land in large body of water. Splashing in fear, you realize you're not the ony one. Something large grazes your leg, but the water is pitch black. Quickly you realize there's more, you've landed in shark infested waters!",
+      "Text": "You land in large body of water. Splashing in fear, you realize you're not the ony one. Something large grazes your leg, but the water is pitch black. Quickly you realize there's more... you've landed in shark infested waters!",
       "Actions": {
         "Action1": ["Fight the sharks.", "EnemyRoom1.5"],
-        "Action2": ["Get ate (not recommended).", "EndLose"]
+        "Action2": ["Get eaten (not recommended).", "EndLose"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
       "EnemyClear": "EmptyRoom2"
     },
     "EnemyRoom1.5": {
-      "Text": "You land in large body of water, splashing in fear, you realize you're not the ony one. something large grazes your leg, but the water is pitch black. Quickly you realize there's more, you've landed in shark infested waters!",
+      "Text": "You land in large body of water, splashing in fear, you realize you're not the ony one. something large grazes your leg, but the water is pitch black. Quickly you realize there's more... you've landed in shark infested waters!",
       "Actions": {
         "Action1": ["Action 1 for fighting the sharks.", "ActionName"],
         "Action2": ["Action 2 for fighting the sharks.", "ActionName"]
@@ -33,7 +33,7 @@
     },
 
     "EmptyRoom2": {
-      "Text": "You fend your way through the sharks, but suddenly something pulls you underwater. You sink deeper into the water, afraid for your life, when you hit open air and fall to the ground. Above you lies the water you fell through, covering the entire ceiling. You realize you are trapped in a tiny room with two doors, one directly in front of you, the other to your backside",
+      "Text": "You fend your way through the sharks, but suddenly something pulls you underwater. You sink deeper into the water, afraid for your life, when you hit open air and fall to the ground. Above you lies the water you fell through, covering the entire ceiling. You realize you are trapped in a tiny room with two doors, one directly in front of you, the other to your backside.",
       "Actions": {
         "Action1": ["Walk through the door in front of you.", "PuzzleRoom1"],
         "Action2": ["Walk through the door behind you", "EnemyRoom2"],
@@ -45,7 +45,7 @@
     },
 
     "EmptyRoom2-2": {
-      "Text": "As you take a break to dry off, you feel a sudden breeze but don't know where its coming from. As you look up, you're staring into the funnel of a tornado. Quickly being taken off your feet spinning, with no end in sight",
+      "Text": "As you take a break to dry off, you feel a sudden breeze but don't know where its coming from. As you look up, you're staring into the funnel of a tornado. Quickly being taken off your feet spinning, with no end in sight.",
       "Actions": {
         "Action1": ["Give up.", "EndLose"]
       },
@@ -131,7 +131,7 @@
     },
 
     "EndLose": {
-      "Text": "You wake up in your bed from your strange dream. Sine you lost, you feel no sense of satisfaction from the ordeal. Failure."
+      "Text": "You wake up in your bed from your strange dream. Since you lost, you feel no sense of satisfaction from the ordeal. Failure."
     },
 
     "EndWin": {
