@@ -73,7 +73,7 @@ public class Player {
     public void spendPointOnHealth() {
         if(points > 0) {
             subtractPoint();
-            setHealthBonus(3);
+            setHealthBonus(5);
         }
     }
 
