@@ -14,6 +14,16 @@
     "EnemyRoom1": {
       "Text": "You land in large body of water, splashing in fear, you realize you're not the ony one. something large grazes your leg, but the water is pitch black. Quickly you realize there's more, you've landed in shark infested waters!",
       "Actions": {
+        "Action1": ["Fight the sharks.", "EnemyRoom1.5"],
+        "Action2": ["Get ate (not recommended).", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "EmptyRoom2"
+    },
+    "EnemyRoom1.5": {
+      "Text": "You land in large body of water, splashing in fear, you realize you're not the ony one. something large grazes your leg, but the water is pitch black. Quickly you realize there's more, you've landed in shark infested waters!",
+      "Actions": {
         "Action1": ["Action 1 for fighting the sharks.", "ActionName"],
         "Action2": ["Action 2 for fighting the sharks.", "ActionName"]
       },
@@ -37,7 +47,7 @@
     "EmptyRoom2-2": {
       "Text": "As you take a break to dry off, you feel a sudden breeze but don't know where its coming from. As you look up, you're staring into the funnel of a tornado. Quickly being taken off your feet spinning, with no end in sight",
       "Actions": {
-        "Action1": ["Give up.", "EndLose"]
+        "Action1": ["Give up.", "EndLose"],
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
@@ -45,13 +55,35 @@
     },
 
     "EnemyRoom2": {
-      "Text": "After getting thrown out of the tornado, you land safely in forest, the trees softening the blow. You here rustling from two directions, and before you know it a bear and a wolf surround you.",
+      "Text": "After going through the door, you fall through a hole. You land safely in forest, the trees softening the blow. You here rustling from two directions, and before you know it a bear and a wolf surround you.",
+      "Actions": {
+        "Action1": ["Fight the bear first.", "EnemyRoom2.1"],
+        "Action2": ["Fight the wolf first.", "EnemyRoom2.2"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "PuzzleRoom2"
+    },
+
+    "EnemyRoom2.1": {
+      "Text": "After going through the door, you fall through a hole. You land safely in forest, the trees softening the blow. You here rustling from two directions, and before you know it a bear and a wolf surround you.",
       "Actions": {
         "Action1": ["Fight the bear first.", "AttackAction"],
         "Action2": ["Fight the wolf first.", "AttackAction"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": ["Bear", "Wolf"],
+      "EnemyClear": "PuzzleRoom2"
+    },
+
+    "EnemyRoom2.2": {
+      "Text": "After going through the door, you fall through a hole. You land safely in a forest, the trees softening the blow. You here rustling from two directions, and before you know it a bear and a wolf surround you.",
+      "Actions": {
+        "Action1": ["Fight the bear first.", "AttackAction"],
+        "Action2": ["Fight the wolf first.", "AttackAction"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Wolf", "Bear"],
       "EnemyClear": "PuzzleRoom2"
     },
 
@@ -66,8 +98,19 @@
       "EnemyClear": "null"
     },
 
+    "EmptyRoom3": {
+      "Text": "You sucessfully complete the puzzle. When you complete it however, the floor collapses. You land safely in a forest, the trees softening the blow. you start to feel the ground shake. The trees start to converge closer together, creating walls around you. As yu feel the wall behind you touch you back, you realize that the newly formed room is getting smaller. With no way out, you realize the puzzle is the only chance of survival.",
+      "Actions": {
+        "Action1": ["Attempt the puzzle.", "DoPuzzle"],
+        "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
+      },
+      "Puzzle": ["scrambler", "LastRoom", "EndLose"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
     "PuzzleRoom2": {
-      "Text": "you start to feel the ground shake and as you feel the wall be behind you touch you back, you realize that the room is getting smaller. with no way out, you realize the puzzle is the only chance of survival.",
+      "Text": "After killing the animals around you, you start to feel the ground shake. The trees start to converge closer together, creating walls around you. As you feel the wall behind you touch you back, you realize that the newly formed room is getting smaller. With no way out, you realize the puzzle is the only chance of survival.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
