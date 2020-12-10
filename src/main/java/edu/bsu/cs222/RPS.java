@@ -35,14 +35,7 @@ public class RPS {
                                 if(leave) {
                                         new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject);
                                 } else {
-                                        throwType = randomizeThrow();
-                                        if (throwType.equalsIgnoreCase("rock")) {
-                                                tieThrow();
-                                        } else if (throwType.equalsIgnoreCase("paper")) {
-                                                losingThrow();
-                                        } else {
-                                                winningThrow();
-                                        }
+                                        match("rock");
                                 }
                         } catch (FileNotFoundException e) {
                                 e.printStackTrace();
@@ -53,37 +46,13 @@ public class RPS {
                                 if(leave) {
                                         new GUI(primaryStage, storyName, puzzle.getIfFailAction(), storyObject);
                                 } else {
-                                        throwType = randomizeThrow();
-                                        if (throwType.equalsIgnoreCase("paper")) {
-                                                displayText.setText("A tie! Try again.");
-                                        } else if (throwType.equalsIgnoreCase("scissors")) {
-                                                losingThrow();
-                                        } else {
-                                                winningThrow();
-                                        }
+                                        match("paper");
                                 }
                         } catch (FileNotFoundException e) {
                                 e.printStackTrace();
                         }
                 });
-                scissorsButton.setOnAction(actionEvent -> {
-                        try {
-                                if(leave) {
-                                        new GUI(primaryStage, storyName, puzzle.getIfPassAction(), storyObject);
-                                } else {
-                                        throwType = randomizeThrow();
-                                        if (throwType.equalsIgnoreCase("scissors")) {
-                                                displayText.setText("A tie! Try again.");
-                                        } else if (throwType.equalsIgnoreCase("rock")) {
-                                                losingThrow();
-                                        } else {
-                                                winningThrow();
-                                        }
-                                }
-                        } catch (FileNotFoundException e) {
-                                e.printStackTrace();
-                        }
-                });
+                scissorsButton.setOnAction(actionEvent -> match("scissors"));
         }
 
         public void createGUI(Stage primaryStage) {
@@ -156,6 +125,25 @@ public class RPS {
                         gameMove = "scissors";
                 }
                 return gameMove;
+        }
+
+        public void match(String playerThrow) {
+                throwType = randomizeThrow();
+                if(playerThrow.equalsIgnoreCase(throwType)) {
+                        tieThrow();
+                } else if(playerThrow.equalsIgnoreCase("rock") && throwType.equalsIgnoreCase("paper")) {
+                        losingThrow();
+                } else if (playerThrow.equalsIgnoreCase("rock") && throwType.equalsIgnoreCase("scissors")) {
+                        winningThrow();
+                } else if (playerThrow.equalsIgnoreCase("paper") && throwType.equalsIgnoreCase("rock")) {
+                        winningThrow();
+                } else if (playerThrow.equalsIgnoreCase("paper") && throwType.equalsIgnoreCase("scissors")) {
+                        losingThrow();
+                } else if (playerThrow.equalsIgnoreCase("scissors") && throwType.equalsIgnoreCase("rock")) {
+                        losingThrow();
+                } else if (playerThrow.equalsIgnoreCase("scissors") && throwType.equalsIgnoreCase("paper")) {
+                        winningThrow();
+                }
         }
 
         public void winningThrow() {
