@@ -2,7 +2,7 @@
   "WaterStory": {
 
     "StartRoom": {
-      "Text": "You wake up in a cold, stone room, leaned against one of the walls. Water is dripping from the ceiling, and there's enough in the room to go up to your waist. Where are you? You look around the room. There is a door ahead of you, it's old wood looking as if it will fall apart soon.",
+      "Text": "You wake up in a cold, stone room, leaned against one of the walls. Water is dripping from the ceiling, and there's enough in the room to go up to your waist. Where are you? You look around the room. There is a door ahead of you, its old wood looking as if it will fall apart soon.",
       "Actions": {
         "Action1": ["Go through the door.","EnemyRoom1"]
       },
@@ -55,7 +55,7 @@
     },
 
     "EnemyRoom2": {
-      "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
+      "Text": "Once again, the water joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
       "Actions": {
         "Action1": ["Fight the vampire first.", "EnemyRoom2.1"],
         "Action2": ["Fight the orc first.", "EnemyRoom2.2"]
@@ -65,7 +65,7 @@
       "EnemyClear": "null"
     },
     "EnemyRoom2.1": {
-      "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
+      "Text": "Once again, the water joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
       "Actions": {
         "Action1": ["Fight the vampire first.", "AttackAction"],
         "Action2": ["Fight the orc first.", "AttackAction"]
@@ -75,7 +75,7 @@
       "EnemyClear": "PuzzleRoom2"
     },
     "EnemyRoom2.2": {
-      "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
+      "Text": "Once again, the water joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
       "Actions": {
         "Action1": ["Fight the vampire first.", "AttackAction"],
         "Action2": ["Fight the orc first.", "AttackAction"]
@@ -108,7 +108,7 @@
     },
 
     "LastRoom": {
-      "Text": "With the water up to your shoulders, you finish the puzzle. Lots of mechanical noises happen all around you, as water starts flowing through a newly opened hole in the wall. After all the water clears out, a spiral staircase slowly lowers itself down from the ceiling.",
+      "Text": "With the water up to your shoulders, you finish the puzzle. Lots of mechanical noises happen all around you as water starts flowing through a newly opened hole in the wall. After all the water clears out, a spiral staircase slowly lowers itself down from the ceiling.",
       "Actions": {
         "Action1": ["Exit up the staircase.","EndWin"]
       },
@@ -122,7 +122,7 @@
     },
 
     "EndWin": {
-      "Text": "With no knowledge of how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight."
+      "Text": "Not knowing how you arrived, you escaped the watery dungeon below you. The sun shines on the field you find yourself in, with no civilization in sight."
     }
 
   }
