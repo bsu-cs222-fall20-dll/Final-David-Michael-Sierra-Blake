@@ -88,7 +88,7 @@
     },
 
     "PuzzleRoom1": {
-      "Text": "The new room looks harmless, but no way out. At least you're safe, for now...\n\nIn front of you sits some sort of puzzle. It looks important.",
+      "Text": "The new room looks harmless, but no way out. At least you're safe, for now...\n\nIn front of you sits some sort of puzzle. It looks important.\n\nWARNING: ignoring a puzzle room makes you take 5 damage. Only risk if you think it's necessary!",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
@@ -110,7 +110,7 @@
     },
 
     "PuzzleRoom2": {
-      "Text": "After killing the animals around you, you start to feel the ground shake. The trees start to converge closer together, creating walls around you. As you feel the wall behind you touch you back, you realize that the newly formed room is getting smaller. With no way out, you realize the puzzle is the only chance of survival.",
+      "Text": "After killing the animals around you, you start to feel the ground shake. The trees start to converge closer together, creating walls around you. As you feel the wall behind you touch you back, you realize that the newly formed room is getting smaller. With no way out, you realize the puzzle is the only chance of survival.\n\nWARNING: ignoring a puzzle room makes you take 5 damage. Only risk if you think it's necessary!",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]

@@ -72,8 +72,8 @@ public class GUI {
         actionButton2.setOnAction(actionEvent -> {
             try {
                 if(puzzleRoom) {
-                    player.setHealthAfterDamage(5);
-                    if (player.getHealth() <= 0) {
+                    this.player.setHealthAfterDamage(5);
+                    if (this.player.getHealth() <= 0) {
                         setActionChoice(1);
                         update(storyObject, actionResults.get(1));
                     } else {
@@ -218,6 +218,7 @@ public class GUI {
         actionButton2.setVisible(true);
         actionResults.add(puzzle.getIfPassAction());
         actionResults.add(puzzle.getIfFailAction());
+        statsButton.setVisible(true);
         puzzleRoom = true;
     }
 
