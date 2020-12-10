@@ -14,6 +14,16 @@
     "EnemyRoom1": {
       "Text": "The water floods into the next room as you open the door. Across the room, you've waken somebody else up. SomeTHING else up. A skeleton picks itself up off the floor.",
       "Actions": {
+        "Action1": ["Fight!", "EnemyRoom1.5"],
+        "Action2": ["Let it beat you to death.", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+    "EnemyRoom1.5": {
+      "Text": "The water floods into the next room as you open the door. Across the room, you've waken somebody else up. SomeTHING else up. A skeleton picks itself up off the floor.",
+      "Actions": {
         "Action1": ["Action 1 for fighting the skeleton.", "ActionName"],
         "Action2": ["Action 2 for fighting the skeleton.", "ActionName"]
       },
@@ -23,7 +33,7 @@
     },
 
     "EmptyRoom2": {
-      "Text": "You walk through the next door, which also contained about the same level of water. Why was there a skeleton ready to attack you? Ahead of you are two doors: one on the left, and one on the right.",
+      "Text": "After successfully beating the skeleton, you walk through the next door, which also contains about the same level of water. Why was there a skeleton ready to attack you? Ahead of you are two doors: one on the left, and one on the right.",
       "Actions": {
         "Action1": ["Walk through the door on the left.", "PuzzleRoom1"],
         "Action2": ["Walk through the door on the right.", "EnemyRoom2"],
@@ -47,11 +57,31 @@
     "EnemyRoom2": {
       "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
       "Actions": {
+        "Action1": ["Fight the vampire first.", "EnemyRoom2.1"],
+        "Action2": ["Fight the orc first.", "EnemyRoom2.2"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": ["null"]
+    },
+    "EnemyRoom2.1": {
+      "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
+      "Actions": {
         "Action1": ["Fight the vampire first.", "AttackAction"],
         "Action2": ["Fight the orc first.", "AttackAction"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": ["Vampire", "Orc"],
+      "EnemyClear": "PuzzleRoom2"
+    },
+    "EnemyRoom2.2": {
+      "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
+      "Actions": {
+        "Action1": ["Fight the vampire first.", "AttackAction"],
+        "Action2": ["Fight the orc first.", "AttackAction"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": ["Orc", "Vampire"],
       "EnemyClear": "PuzzleRoom2"
     },
 
@@ -67,7 +97,7 @@
     },
 
     "PuzzleRoom2": {
-      "Text": "As you enter the room, the door slams shut behind you, with an audible locking noise. A large puzzle sits in the center of the room. As you approach it, water slowly starts flowing out of cracks in the walls. you decide that if you're gonna do the puzzle, you'd better hurry.",
+      "Text": "You successfully are able to escape the room. As you enter the newest room, the door slams shut behind you, with an audible locking noise. A large puzzle sits in the center of the room. As you approach it, water slowly starts flowing out of cracks in the walls. you decide that if you're gonna do the puzzle, you'd better hurry.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]

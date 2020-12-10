@@ -2,7 +2,7 @@
   "DreamStory": {
 
     "StartRoom": {
-      "Text": " You're laying in bed. You're eyes are getting heavy, and just as they shut, you're wide awake. Standing in an open field, the only thing visible is a giant hole straight ahead.",
+      "Text": " You're laying in bed. Your eyes are getting heavy, and just as they shut, you're wide awake. Standing in an open field, the only thing visible is a giant hole straight ahead.",
       "Actions": {
         "Action1": ["Jump into hole","EnemyRoom1"]
       },
@@ -12,7 +12,7 @@
     },
 
     "EnemyRoom1": {
-      "Text": "You land in large body of water, splashing in fear, you realize you're not the ony one. something large grazes your leg, but the water is pitch black. Quickly you realize there's more, you've landed in shark infested waters!",
+      "Text": "You land in large body of water. Splashing in fear, you realize you're not the ony one. Something large grazes your leg, but the water is pitch black. Quickly you realize there's more, you've landed in shark infested waters!",
       "Actions": {
         "Action1": ["Fight the sharks.", "EnemyRoom1.5"],
         "Action2": ["Get ate (not recommended).", "EndLose"]
@@ -33,7 +33,7 @@
     },
 
     "EmptyRoom2": {
-      "Text": "Flying out of the water, up through the hole you fell through, but the field is gone. Trapped in a tiny room with two doors, one directly in front of you, the other to your backside",
+      "Text": "You fend your way through the sharks, but suddenly something pulls you underwater. You sink deeper into the water, afraid for your life, when you hit open air and fall to the ground. Above you lies the water you fell through, covering the entire ceiling. You realize you are trapped in a tiny room with two doors, one directly in front of you, the other to your backside",
       "Actions": {
         "Action1": ["Walk through the door in front of you.", "PuzzleRoom1"],
         "Action2": ["Walk through the door behind you", "EnemyRoom2"],
@@ -93,13 +93,13 @@
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
       },
-      "Puzzle": ["rps", "PuzzleRoom2", "EndLose"],
+      "Puzzle": ["rps", "EmptyRoom3", "EndLose"],
       "Enemies": [],
       "EnemyClear": "null"
     },
 
     "EmptyRoom3": {
-      "Text": "You sucessfully complete the puzzle. When you complete it however, the floor collapses. You land safely in a forest, the trees softening the blow. you start to feel the ground shake. The trees start to converge closer together, creating walls around you. As yu feel the wall behind you touch you back, you realize that the newly formed room is getting smaller. With no way out, you realize the puzzle is the only chance of survival.",
+      "Text": "You sucessfully complete the puzzle. When you complete it however, the floor collapses. You land safely in a forest, the trees softening the blow. you start to feel the ground shake. The trees start to converge closer together, creating walls around you. As you feel the wall behind you touch you back, you realize that the newly formed room is getting smaller. With no way out, you realize the puzzle is the only chance of survival.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
@@ -131,11 +131,11 @@
     },
 
     "EndLose": {
-      "Text": "Waking up in bed you realize you gave up for no reason. Failure."
+      "Text": "You wake up in your bed from your strange dream. Sine you lost, you feel no sense of satisfaction from the ordeal. Failure."
     },
 
     "EndWin": {
-      "Text": "Waking up in bed you realize you did it, you can survive anything. Later that day you win 1 million dollars nice job."
+      "Text": "After going through the glowing door, white light blinds you. You wake up in your bed, a long line of drool on your face. While it may have not been a real experience, you still feel the strange satisfaction of completing your journey. Success!"
     }
 
   }
