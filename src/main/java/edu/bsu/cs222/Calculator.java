@@ -181,8 +181,6 @@ public class Calculator {
             displayText.setText("You must input an answer.");
         } else if(Integer.parseInt(guess) == problemAnswer) {
             correctGuess();
-        } else if (guess.equalsIgnoreCase("")) {
-            displayText.setText("You must input an answer.");
         } else {
             incorrectGuess();
         }
