@@ -33,17 +33,28 @@
     },
 
     "PuzzleRoom1": {
-      "Text": "You stumble across something on the wall. *INSERT PUZZLE DESCRPITION HERE*",
+      "Text": "You stumble across something on the wall. On the wall lies numbers carved along the wall. As you approach, a hologram of a series of numbers appears.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
       },
-      "Puzzle": ["calculator", "PuzzleRoom2", "EndLose"],
+      "Puzzle": ["calculator", "EnemyRoom1", "EndLose"],
       "Enemies": [],
       "EnemyClear": "null"
     },
 
     "EnemyRoom1": {
+      "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
+      "Actions": {
+        "Action1": ["Fight!.", "EnemyRoom1.5"],
+        "Action2": ["Just stand there and let death take you.", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EnemyRoom1.5": {
       "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
       "Actions": {
         "Action1": ["Fight!.", "AttackAction"],
@@ -66,7 +77,7 @@
     },
 
     "PuzzleRoom2": {
-      "Text": "You decide to go through the puzzle door. As you enter the room, the door slams shut behind you. A large puzzle sits in the center of the room. INSERT PUZZLE DESCRIPTION HERE.",
+      "Text": "You decide to go through the puzzle door. As you enter the room, the door slams shut behind you. In the middle of the room lies a table with stone tablets. Each tablet contains one letter each.",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
@@ -78,6 +89,17 @@
 
     "EnemyRoom2": {
       "Text": "You decide to go through the sword door. The door shuts behind you, and you stumble across a very familiar sight: bones in a pile, rumbling and forming together. Only this time, there are two piles of bones. You can only assume this means two skeletons, and you mentally brace for impact.",
+      "Actions": {
+        "Action1": ["Fight!.", "EnemyRoom2.5"],
+        "Action2": ["Just stand there and let death take you.", "EndLose"]
+      },
+      "Puzzle": ["null", "ifPass", "ifFail"],
+      "Enemies": [],
+      "EnemyClear": "null"
+    },
+
+    "EnemyRoom2.5": {
+      "Text": "With the puzzle opening up the next room, you decide that the only course of action is to move forward. As you walk into the next room, you see an eerie sight. On the ground lies a pile of bones, unmistakingly human. Then, the bones start to shake. Freaked out, you try to flee, but the door shut behind you. You turn back around, and you see that the bones have formed back together, creating an animated skeleton. And it does not look friendly.",
       "Actions": {
         "Action1": ["Fight!.", "AttackAction"],
         "Action2": ["Just stand there and let death take you.", "EndLose"]
