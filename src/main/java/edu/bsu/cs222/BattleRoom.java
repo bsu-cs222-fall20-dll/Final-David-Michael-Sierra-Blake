@@ -16,7 +16,7 @@ public class BattleRoom extends Battle {
         ArrayList<Enemy> enemyArrayList = room.getEnemies();
 
         for(Enemy enemy: enemyArrayList) {
-            battleText.append("\nEnemy: ").append(enemy.getEnemyName());
+            battleText.append("Enemy: ").append(enemy.getEnemyName());
             while(enemy.getEnemyHealth() > 0) {
                 dice = (int) (Math.random() * 6) + 1;
                 if (dice > enemy.getEnemyHit()) {
@@ -35,6 +35,9 @@ public class BattleRoom extends Battle {
                     return "EndLose";
                 }
             }
+            battleText.append("\nEnemy defeated! One stat point added to your character.");
+            player.addPoint();
+            battleText.append("\nCurrent points: ").append(player.getPoints()).append("\n");
         }
         roomText.setText(battleText.toString());
         actionButton1.setText("Continue to next room");

@@ -9,6 +9,7 @@ public class Player {
     int attack;
     int healthBonus;
     int attackBonus;
+    int points;
 
     public Player() throws FileNotFoundException {
         PlayerReader playerReader = new PlayerReader();
@@ -59,5 +60,31 @@ public class Player {
     public void setAttackBonus(int attackBonus) {
         this.attackBonus = attackBonus;
         setAttack();
+    }
+
+    public void addPoint() {
+        points += 1;
+    }
+
+    public void subtractPoint() {
+        points -= 1;
+    }
+
+    public void spendPointOnHealth() {
+        if(points > 0) {
+            subtractPoint();
+            setHealthBonus(3);
+        }
+    }
+
+    public void spendPointOnDamage() {
+        if(points > 0) {
+            subtractPoint();
+            setAttackBonus(1);
+        }
+    }
+
+    public int getPoints() {
+        return points;
     }
 }
