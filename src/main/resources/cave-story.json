@@ -33,7 +33,7 @@
     },
 
     "PuzzleRoom1": {
-      "Text": "You stumble across something on the wall. On the wall lies numbers carved along the wall. As you approach, a hologram of a series of numbers appears.",
+      "Text": "You stumble across something on the wall. On the wall lies numbers carved along the wall. As you approach, a hologram of a series of numbers appears.\n\nWARNING: ignoring a puzzle room makes you take 5 damage. Only risk if you think it's necessary!",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
@@ -77,7 +77,7 @@
     },
 
     "PuzzleRoom2": {
-      "Text": "You decide to go through the puzzle door. As you enter the room, the door slams shut behind you. In the middle of the room lies a table with stone tablets. Each tablet contains one letter each.",
+      "Text": "You decide to go through the puzzle door. As you enter the room, the door slams shut behind you. In the middle of the room lies a table with stone tablets. Each tablet contains one letter each.\n\nWARNING: ignoring a puzzle room makes you take 5 damage. Only risk if you think it's necessary!",
       "Actions": {
         "Action1": ["Attempt the puzzle.", "DoPuzzle"],
         "Action2": ["Ignore the puzzle.", "IgnorePuzzle"]
