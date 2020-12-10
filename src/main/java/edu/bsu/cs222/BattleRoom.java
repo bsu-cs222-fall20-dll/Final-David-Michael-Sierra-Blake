@@ -20,12 +20,12 @@ public class BattleRoom extends Battle {
             while(enemy.getEnemyHealth() > 0) {
                 dice = (int) (Math.random() * 6) + 1;
                 if (dice > enemy.getEnemyHit()) {
-                    enemy.setEnemyHealth(1);
+                    enemy.setEnemyHealth(player.getAttack());
                     battleText.append("\nYou rolled a ").append(dice).append(". You hit. Enemy health = ").append(enemy.getEnemyHealth());
                 } else if (dice == enemy.getEnemyHit()) {
                     battleText.append("\nNeither of you hit. Enemy health = ").append(enemy.getEnemyHealth());
                 } else {
-                    player.setHealthAfterDamage(1);
+                    player.setHealthAfterDamage(enemy.getEnemyAttack());
                     battleText.append("\nYou were hit by the enemy for 1 damage. Current health = ").append(player.getHealth());
                 }
                 if(player.getHealth() == 0) {
@@ -39,6 +39,9 @@ public class BattleRoom extends Battle {
             player.addPoint();
             battleText.append("\nCurrent points: ").append(player.getPoints()).append("\n");
         }
+        battleText.append("\n\nRoom defeated! One additional stat point rewarded.");
+        player.addPoint();
+        battleText.append("\nCurrent points: ").append(player.getPoints()).append("\n");
         roomText.setText(battleText.toString());
         actionButton1.setText("Continue to next room");
         return room.getEnemyClear();
