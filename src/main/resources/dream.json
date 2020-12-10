@@ -47,7 +47,7 @@
     "EmptyRoom2-2": {
       "Text": "As you take a break to dry off, you feel a sudden breeze but don't know where its coming from. As you look up, you're staring into the funnel of a tornado. Quickly being taken off your feet spinning, with no end in sight",
       "Actions": {
-        "Action1": ["Give up.", "EndLose"],
+        "Action1": ["Give up.", "EndLose"]
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
