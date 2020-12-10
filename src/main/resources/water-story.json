@@ -64,6 +64,7 @@
       "Enemies": [],
       "EnemyClear": "null"
     },
+
     "EnemyRoom2.1": {
       "Text": "Once again, the water joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
       "Actions": {
@@ -74,6 +75,7 @@
       "Enemies": ["Vampire", "Orc"],
       "EnemyClear": "PuzzleRoom2"
     },
+
     "EnemyRoom2.2": {
       "Text": "Once again, the water joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
       "Actions": {
