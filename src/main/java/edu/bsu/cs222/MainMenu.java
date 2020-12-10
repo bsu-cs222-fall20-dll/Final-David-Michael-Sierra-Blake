@@ -109,7 +109,7 @@ public class MainMenu {
         menuText.setMaxHeight(200);
         menuText.setMaxWidth(350);
         menuText.setWrapText(true);
-        menuText.setText("Choose one of the three stories below, or click exit to quit the game.");
+        menuText.setText("Welcome to our dungeon simulator! \nChoose one of the three stories below, or click exit to quit the game.");
     }
 
     public void beautifyStoryButton1() {
