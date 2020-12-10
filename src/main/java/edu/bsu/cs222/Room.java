@@ -22,7 +22,6 @@ public class Room {
         JsonObject currentRoom = storyReader.roomReceiver(story, roomName, storyName);
 
         if (roomName.equals("End")) {
-            System.out.println("Ending game.");
             exit(0);
         }
         text = storyReader.textReceiver(currentRoom).replace("\\n", "\n");

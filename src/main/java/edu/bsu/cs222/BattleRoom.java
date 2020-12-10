@@ -23,7 +23,7 @@ public class BattleRoom extends Battle {
                     enemy.setEnemyHealth(1);
                     battleText.append("\nYou rolled a ").append(dice).append(". You hit. Enemy health = ").append(enemy.getEnemyHealth());
                 } else if (dice == enemy.getEnemyHit()) {
-                    battleText.append("\nYou did not hit. Enemy health = ").append(enemy.getEnemyHealth());
+                    battleText.append("\nNeither of you hit. Enemy health = ").append(enemy.getEnemyHealth());
                 } else {
                     player.setHealthAfterDamage(1);
                     battleText.append("\nYou were hit by the enemy for 1 damage. Current health = ").append(player.getHealth());
