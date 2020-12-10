@@ -180,25 +180,33 @@ public class Calculator {
         if (guess.equalsIgnoreCase("")) {
             displayText.setText("You must input an answer.");
         } else if(Integer.parseInt(guess) == problemAnswer) {
-            displayText.setText("You guessed correctly!");
-            exitButton.setVisible(false);
-            submitButton.setVisible(false);
-            continueButton.setVisible(true);
-            continueButton.setText("Continue to next room");
-            leave = true;
+            correctGuess();
         } else if (guess.equalsIgnoreCase("")) {
             displayText.setText("You must input an answer.");
         } else {
-            tries += 1;
-            displayText.setText("You guess incorrectly! One guess remaining!");
-            if (tries >= 2) {
-                exitButton.setVisible(true);
-                submitButton.setVisible(false);
-                continueButton.setVisible(false);
-                displayText.setText("You guessed incorrectly! You lose!");
-                leave = true;
-            }
+            incorrectGuess();
         }
 
+    }
+
+    public void correctGuess() {
+        displayText.setText("You guessed correctly!");
+        exitButton.setVisible(false);
+        submitButton.setVisible(false);
+        continueButton.setVisible(true);
+        continueButton.setText("Continue to next room");
+        leave = true;
+    }
+
+    public void incorrectGuess() {
+        tries += 1;
+        displayText.setText("You guess incorrectly! One guess remaining!");
+        if (tries >= 2) {
+            exitButton.setVisible(true);
+            submitButton.setVisible(false);
+            continueButton.setVisible(false);
+            displayText.setText("You guessed incorrectly! You lose!");
+            leave = true;
+        }
     }
 }
