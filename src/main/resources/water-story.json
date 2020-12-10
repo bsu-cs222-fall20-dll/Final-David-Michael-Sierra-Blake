@@ -62,7 +62,7 @@
       },
       "Puzzle": ["null", "ifPass", "ifFail"],
       "Enemies": [],
-      "EnemyClear": ["null"]
+      "EnemyClear": "null"
     },
     "EnemyRoom2.1": {
       "Text": "Once again, the water, joins you in entering the once-dry room. This time, two enemies, a vampire and an orc, come at you.",
