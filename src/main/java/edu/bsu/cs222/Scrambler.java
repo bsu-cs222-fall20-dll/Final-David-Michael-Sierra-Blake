@@ -106,7 +106,7 @@ public class Scrambler {
         displayText.setMaxHeight(100);
         displayText.setMaxWidth(350);
         displayText.setWrapText(true);
-        displayText.setText("Welcome to Scrambler. Unscramble the word shown to progress. Fail twice to lose.");
+        displayText.setText("Welcome to Scrambler. Unscramble the word shown to progress. Fail five times to lose.");
     }
 
     public void beautifyInputText() {
