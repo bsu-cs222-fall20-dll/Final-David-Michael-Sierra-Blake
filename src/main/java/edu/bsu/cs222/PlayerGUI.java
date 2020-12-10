@@ -59,7 +59,7 @@ public class PlayerGUI {
 
         BackgroundImage myBI= null;
         try {
-            myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/tile-floor.jpg"),1024,1024,false,true),
+            myBI = new BackgroundImage(new Image(new FileInputStream("src/main/resources/water-background.jpg"),1280,720,false,true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                     BackgroundSize.DEFAULT);
         } catch (FileNotFoundException e) {
