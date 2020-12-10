@@ -195,7 +195,7 @@ public class Scrambler {
     public void incorrectGuess() {
         tries += 1;
         displayText.setText("You guess incorrectly! One guess remaining!");
-        if (tries >= 2) {
+        if (tries >= 5) {
             exitButton.setVisible(true);
             submitButton.setVisible(false);
             continueButton.setVisible(false);
